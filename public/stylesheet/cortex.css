@@ -1,0 +1,30 @@
+body{font-family:'Montserrat', sans-serif;font-size:75%;min-height:100%;overflow:none;background-color:#2D4259;}
+
+a, a:visited {text-decoration:none;color:#6E6E6E;}
+header{
+	background-color: #ccc;
+	width: 100%;
+	box-shadow:2px 0 10px rgba(0,0,0,.5);position:relative;z-index:2;
+}
+header nav ul li{
+	list-style: none;	
+}
+
+ul {display:inline-block;list-style:none;padding:0;}
+
+.index{width:15%;display:inline-block;}
+ul a{text-transform:uppercase;}
+.index li{text-align:center;line-height:1em;}
+.index li:after{content:'°';display:block;margin-top:.5em;color:#6E6E6E;opacity:.3;}
+
+
+
+
+header a, header form{display:inline-block;vertical-align:middle;}
+header form {margin-left:2em;}
+header a, header a:visited {font-family:'Arapey';font-size:2em;color:#2D4259;margin:0 0 0 1em;letter-spacing:.05em;}
+header span{font-size:.5em;}
+input[name="name"]{margin:1em;font-family:'Arapey', serif;border-radius:.5em;padding:.5em 1em;color:#666;border:1px solid #DCDCDC;;width:100%;font-size:1.5em;outline:none;}
+body section:first-child{width:100%;overflow:auto;background-color:#fff;height:auto; margin-top: 5em; padding:5;}
+
+
