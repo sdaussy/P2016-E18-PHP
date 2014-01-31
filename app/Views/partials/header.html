@@ -1,8 +1,62 @@
-<nav>
+ 
+  <nav id="nav-global">
+    <a href="#">Home</a>
+    <a href="#">Page Defis</a>
+
+    
+  </nav>
+
+  <div id="menu">
+    <a href="#" class="toggle">Connexion</a>
+    
+    <aside class="visible">
+      <nav id="nav-compact">
+					<form  method="POST" action="Connexion.php" autocomplete="on"> 
+	                <p> 
+	                    <input id="pseudo_user" name="pseudo_user" required="required" type="text" placeholder="Pseudo" />
+	                </p>
+	                <p> 
+	                    <input id="pswd_user" name="pswd_user" required="required" type="password" placeholder="Password"/> 
+	                </p>
+	                <p class="valid button"> 
+	                    <input type="submit" name="valide_contact" value="Envoyer"/> 
+	                </p>
+
+	            	</form>
+
+      </nav>
+      <em>
+        Merci de remplir tous les champs!
+      </em>
+    </aside>
+    
+  </div>
+  
+<script type="text/javascript">
+	var toggle = document.querySelector('.toggle'),
+	    aside = document.querySelector('aside');
+	    
+	toggle.addEventListener('click', function(){
+	  aside.classList.toggle('visible')
+	})
+
+	var property = "flow-into";
+
+	// check if any variant exists, prefixed or not
+	var isCapable = ['-webkit-','-ms-','-moz-',''].some(function(prefix){
+	  return prefix + property in document.body.style 
+	})
+
+	property = isCapable ? property : 'no-' + property;
+	 
+	document.body.classList.add(property)
+</script>
+
+<!--<nav>
     <ul>
       <li></li>
       <li><a href="defier">Défier</a></li>
       <li><a href="repondre">Répondre</a></li>
       <li><a href="profil">Mon profil</a></li>
     </ul>
-</nav>  
+</nav>  -->

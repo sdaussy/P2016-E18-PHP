@@ -33,14 +33,3 @@ $('input[name="name"]').on('keyup',function(){
 });
 
 
-
-
-
-
-
-
-
-
-
-
->>>>>>> ff49ae3d67c0d9d9d1ee21bfcfea5a11ff0aa6bd

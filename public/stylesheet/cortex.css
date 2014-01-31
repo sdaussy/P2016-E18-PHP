@@ -21,10 +21,122 @@ ul a{text-transform:uppercase;}
 
 
 header a, header form{display:inline-block;vertical-align:middle;}
-header form {margin-left:2em;}
-header a, header a:visited {font-family:'Arapey';font-size:2em;color:#2D4259;margin:0 0 0 1em;letter-spacing:.05em;}
-header span{font-size:.5em;}
+
 input[name="name"]{margin:1em;font-family:'Arapey', serif;border-radius:.5em;padding:.5em 1em;color:#666;border:1px solid #DCDCDC;;width:100%;font-size:1.5em;outline:none;}
-body section:first-child{width:100%;overflow:auto;background-color:#fff;height:auto; margin-top: 5em; padding:5;}
+/*body section:first-child{width:100%;overflow:auto;background-color:#fff;height:auto; margin-top: 5em; padding:5;}
+*/
+
+header{
+  box-sizing: border-box;
+  display: flex;
+  height: 3rem;
+  border-bottom: 1px solid #E3E3DB;
+  background: #F4F4EE;
+}
 
 
+#nav-global{
+  height: 3rem;
+  flex: 1 1 auto;
+  padding-left: 3rem;
+}
+
+#nav-global a{
+  text-decoration: none;
+  margin-right: 1.3rem;
+  padding: 0.5rem 0 0;
+  float: left;
+  color: #333;
+  font: 1.3rem/1.9rem normal georgia,serif;
+}
+
+#menu{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 4rem;
+  position: relative;
+  background: #214583;
+}
+
+#menu aside{
+  visibility: visible; /* toggled by JavaScript */
+  background: #214583;
+  width: 10rem;
+  padding: 0.5rem 1rem 1rem;
+  position: absolute;
+  top: calc(3rem - 1px);
+  border: none;
+  right: 0;
+}
+
+#menu aside.visible{
+  visibility: hidden;
+}
+
+#menu em{
+  display: block;
+  margin: 1rem 0 0;
+  padding: 1rem 0 0;
+  border-top: 1px solid #E24D4D;
+  color: rgba(252,252,252,0.7);
+  font-family: helvetica, arial, serif;
+}
+
+#menu .toggle{
+  display: block;
+  width: 8rem;
+  height: 3rem; 
+  text-align:center;
+  text-decoration: none;
+  color: #fff;
+  padding-top: 2em;
+}
+
+/* collect all nav links */
+#nav-global a{
+  flow-into: menu;
+}
+
+/* reflow nav links into original container and overflow into another element */
+#nav-global,
+#nav-compact{
+  flow-from: menu;
+}
+
+/* region-styling for overflow region */
+@-webkit-region #nav-compact{
+  #nav-global a{
+    color: white;
+  }
+}
+
+
+article{
+  padding: 1rem 3rem;
+  width: 50%;
+}
+
+.warning{
+  background: #ffc;
+  color: black;
+  padding: 1em;
+  margin: 0 0 0 -1em;
+  display: none;
+}
+
+.no-flow-into .instructions{
+  display: none;
+}
+.no-flow-into .warning{
+  display: block;
+}
+
+h1{
+  font: 2.5rem/2.8rem normal georgia, serif;
+}
+
+p{
+  color: #444;
+  font: 1.2rem/1.6rem normal georgia, serif;
+}

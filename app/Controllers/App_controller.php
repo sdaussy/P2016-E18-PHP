@@ -7,7 +7,7 @@ class App_controller{
   }
   
   function home($f3){
-    echo View::instance()->render('main.html');
+    echo View::instance()->render('defi.html');
   }
   
   function getUsers($f3){
