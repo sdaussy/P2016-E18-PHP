@@ -1,4 +1,4 @@
-<form action="defi" method="post">
+<form action="defi/envoi" method="post">
 	<input type="text" name="nom_defi" id="nom_defi" placeholder="Nom de votre défi" required>
 	<label>Nom du défi </label>
 	<select name="categories">
@@ -6,6 +6,8 @@
 		<option></option>
 		<option></option>
 	</select>
+	<input type="text" name="question" id="question" placeholder="Votre question" required>
+	<label>Votre question </label>
 	<input type="text" name="reponse_voulue" id="reponse_voulue" placeholder="Réponse souhaitée" required>
 	<label>Réponse souhaitée </label>
 	<input type="text" name="msg_perso" id="msg_perso" placeholder="Laissez un message à votre ami">

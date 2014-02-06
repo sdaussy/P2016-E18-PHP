@@ -1,30 +1,58 @@
 <?php
-class App_model{
+
+class App_model extends Model{
   
- function __construct(){
+private $mapper;
   
+ public function __construct(){
+   parent::__construct();
+   $this->mapper=$this->getMapper('question');
+
  } 
  
- function home(){
+ public function home(){
   
  }
- 
- function getUsers($f3,$params){
-   $users=new DB\SQL\Mapper($f3->get('dB'),'wifiloc');
-   return $users->find('firstname like "'.$params['alpha'].'%"');
-   //notre M  renvoie la donnée au C
+
+  public function getForm_defi($f3){
+   $defi=$map->load(array('question=? and logId=?',$_POST['nomDefi'],$params['logId']));
+   
+
+  }
+  public function getForm_reponse($f3){
+    
+  }
+
+
+ public function getUsers($params){
+   return $this->mapper->find(array('promo=?',$params['promo']),array('order'=>'lastname'));
  }
  
- function getUser($f3,$params){
-   $user=new DB\SQL\Mapper($f3->get('dB'),'wifiloc');
-   return $user->load('userId="'.$params['userId'].'"');
-   //dans users on stocke find récupère 1 élement, load plusieurs éléments
+ public function getUser($params){
+   return $this->mapper->load(array('userId=?',$params['userId']));
  }
  
- function searchUsers($f3,$params){
-   $user=new DB\SQL\Mapper($f3->get('dB'),'wifiloc');
-   return $user->find('firstname like "%'.$params['keywords'].'%" or lastname  like "%'.$params['keywords'].'%"');
- }  
+ public function searchUsers($params){
+ 	$query='(firstname like "%'.$params['keywords'].'%" or lastname  like "%'.$params['keywords'].'%")';
+ 	$query.=$params['filter']?' and promo="'.$params['filter'].'"':'';
+ 	return $this->mapper->find($query);
+ }
+  
+  public function favorite ($params){
+  	$map=$this->getMapper('wififav');
+  	$favorite=$map->load(array('favId=? and logId=?',$params['favId'],$params['logId']));
+  	if(!$favorite){
+  		$map->favid=$params['favId'];
+  		$map->logId=$params['logId'];
+  		$map->save();
+  		return true;
+  	}
+  	else{
+  		$favorite->erase();
+  		return false;
+  		//update
+  	}
+  }
   
   
 }
