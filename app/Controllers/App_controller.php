@@ -9,21 +9,55 @@ class App_controller extends Controller{
     //template sync
 
   }
+  public function signin($f3){
+    switch($f3->get('VERB')){
+      case 'GET':
+        $this->tpl['sync']='signin.html';
+      break;
+      case 'POST':
+        $auth=$this->model->signin(array(
+          'login'=>$f3->get('POST.pseudo_user'),
+          'password'=>$f3->get('POST.pswd_user')
+        ));
+        if(!$auth){
+          $f3->set('error',$f3->get('loginError'));
+          $this->tpl['sync']='signin.html';
+        }
+        else{
+          $user=array(
+            'id'=>$auth->id_User,
+            'Pseudo'=>$auth->Pseudo,
+            'Email'=>$auth->Email,
+            'imgProfil'=>$auth->img_Profil
+          );
+          $f3->set('SESSION',$user);
+          $f3->reroute('/defi');
+        }
+      break;
+    }
+  }
+  
+  public function signout($f3){
+    session_destroy();
+    $f3->reroute('/');
+  }
   
   public function home($f3){
-    
+    $this->tpl['sync']='main.html';
+  }
+
+  public function getDefi($f3){
+
+  }
+
+  public function getReponse($f3){
+
   }
 
   public function getForm_defi($f3){
-    $f3->set('envoiDefi',$this->model->getForm_defi(array('envoi_defi'=>$f3->get('POST.envoi_defi'))));
-    //if(isset($f3->get('envoiDefi'))){
-      $f3->set('nomDefi',$this->model->getForm_defi(array('nom_defi'=>$f3->get('POST.nom_defi'))));
-      $f3->set('reponseVoulue',$this->model->getForm_defi(array('reponse_voulue'=>$f3->get('POST.reponse_voulue'))));
-      $f3->set('users',$this->model->getForm_defi(array('msg_perso'=>$f3->get('POST.msg_perso'))));
-      $f3->set('users',$this->model->getForm_defi(array('nom_defi'=>$f3->get('POST.nom_defi'))));
- //  }
-      
-    
+     $f3->set('nomDefi',$_POST['nom_defi']);
+    $defi = $this->model->getForm_defi(array('nomDefi'=>$f3->get('')));
+   
 
   }
   public function getForm_reponse($f3){
@@ -31,13 +65,13 @@ class App_controller extends Controller{
   }
   
   public function getUsers($f3){
-
-    $f3->set('users',$this->model->getUsers(array('promo'=>$f3->get('PARAMS.promo'))));
+    $donneesRecues = $this->model->getUsers(array('Pseudo'=>$f3->get('PARAMS.Pseudo')));
+    $f3->set('users', $donneesRecues);
     $this->tpl['async']='partials/users.html';
   }
   
   public function getUser($f3){
-    $f3->set('user',$this->model->getUser(array('userId'=>$f3->get('PARAMS.userId'))));
+    $f3->set('user',$this->model->getUser(array('Id_User'=>$f3->get('PARAMS.Id_User'))));
     $this->tpl['async']='partials/user.html';
   }
   

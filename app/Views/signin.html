@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <base href="<?php echo $BASE; ?>/">
   <!-- variable qui lit cortex -->
-        <title>Cortex - Défi </title>
+        <title>Cortex - Connexion</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width,initial-scale=1">
   <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700|Arapey" rel="stylesheet" type="text/css" />
@@ -18,18 +18,8 @@
   <header>
     <?php require('partials/header.html'); ?> 
   </header>
-<section>
-  <section>
-    Hello <?php echo $SESSION['Pseudo']; ?>
-    Défiez vos amis !
-  </section>
-
-  <section>
-    <?php require('partials/form_defi.html'); ?>   
-  </section>
-  <section>
-    <?php require('partials/liste_defi.html'); ?>  
-  </section>
+<section> 
+    <?php require('partials/signin.html'); ?>   
 </section>
         <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
         <script type="text/javascript" src="public/js/cortex.js"></script>

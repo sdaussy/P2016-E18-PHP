@@ -1,19 +1,23 @@
-<form action="defi/envoi" method="post">
-	<input type="text" name="nom_defi" id="nom_defi" placeholder="Nom de votre défi" required>
+<form action="defi/envoi" method="post" name="form_defi">
 	<label>Nom du défi </label>
+	<input type="text" name="nom_defi" id="nom_defi" placeholder="Nom de votre défi" required>	
+	<label>Catégorie de votre défi</label>
 	<select name="categories">
-		<option></option>
-		<option></option>
-		<option></option>
+		<option>Musique</option>
+		<option>Arts-Littérature</option>
+		<option>Sciences</option>
+		<option>Geek</option>
+		<option>Divertissement</option>
+		<option>Sport</option>
 	</select>
-	<input type="text" name="question" id="question" placeholder="Votre question" required>
 	<label>Votre question </label>
-	<input type="text" name="reponse_voulue" id="reponse_voulue" placeholder="Réponse souhaitée" required>
+	<input type="text" name="question" id="question" placeholder="Votre question" required>
 	<label>Réponse souhaitée </label>
-	<input type="text" name="msg_perso" id="msg_perso" placeholder="Laissez un message à votre ami">
+	<input type="text" name="reponse_voulue" id="reponse_voulue" placeholder="Réponse souhaitée" required>
 	<label>Message perso </label>
+	<input type="text" name="msg_perso" id="msg_perso" placeholder="Laissez un message à votre ami">	
 	<input type="submit" name="envoi_defi" id="envoi_defi">
 </form>
-<form action="amis/search" method="post">
+<form action="users/search" method="post">
 	<input type="text" name="name" placeholder="Rechercher un ami" autocomplete="off"/>
 </form>
