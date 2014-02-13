@@ -1,28 +1,22 @@
  
   <nav id="nav-global">
-    <a href="#">Home</a>
-    <?php if(isset($SESSION['Pseudo'])){ ?>
-    <a href="defi/">Defis</a>
-    <?php }?>
-
-    
+    <ul>
+      <a href="#">Home</a>
+      <?php if(isset($SESSION['Pseudo'])){ ?>
+      <li><a href="defi/">Defis</a></li>
+      <li><a href="">Répondre</a></li>
+      <?php }?>
+    </ul>
   </nav>
 
-  <div id="menu">
-    <?php if(isset($SESSION['Pseudo'])){ ?>
-    <a href="signout/">Déconnexion</i></a>
-    <?php }else{?>
-    <a href="signin/" class="toggle">Connexion</a>
-      <?php }?>
-  </div>
-  
-
-
-<!--<nav>
+  <nav id="menu">
     <ul>
-      <li></li>
-      <li><a href="defier">Défier</a></li>
-      <li><a href="repondre">Répondre</a></li>
-      <li><a href="profil">Mon profil</a></li>
+      <?php if(isset($SESSION['Pseudo'])){ ?>
+      <li><a href="">Mon profil</a></li>
+      <li><a href="signout/">Déconnexion</a></li>
+      <?php }else{?>
+      <li><a href="signin/" class="toggle">Connexion</a></li>
+        <?php }?>
     </ul>
-</nav>  -->
+  </nav>
+  

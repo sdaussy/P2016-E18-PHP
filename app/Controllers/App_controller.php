@@ -55,10 +55,8 @@ class App_controller extends Controller{
   }
 
   public function getForm_defi($f3){
-     $f3->set('nomDefi',$_POST['nom_defi']);
-    $defi = $this->model->getForm_defi(array('nomDefi'=>$f3->get('')));
-   
-
+    $this->model->getForm_defi(array('nomDefi'=>$f3->get('POST.nom_defi')));
+    $f3->reroute('/defi');
   }
   public function getForm_reponse($f3){
   

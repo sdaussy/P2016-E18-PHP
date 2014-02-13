@@ -28,10 +28,11 @@ private $mapper;
 
   }
 
-  public function getForm_defi($f3){
-   
-    $f3->
-    $f3->save();
+  public function getForm_defi($params){ 
+    $map=$this->getMapper('question');  
+    //$map->load();
+    //$map->nomDefi=$params['nomDefi'];
+    $map->save(array('nomDefi=?',$params['nomDefi']));
 
  }
   public function getForm_reponse($f3){
