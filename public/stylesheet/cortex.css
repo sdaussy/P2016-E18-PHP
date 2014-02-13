@@ -22,7 +22,16 @@ ul a{text-transform:uppercase;}
 
 header a, header form{display:inline-block;vertical-align:middle;}
 
-input[name="name"]{margin:1em;font-family:'Arapey', serif;border-radius:.5em;padding:.5em 1em;color:#666;border:1px solid #DCDCDC;;width:100%;font-size:1.5em;outline:none;}
+input[name="name"]{
+  font-family:'Arapey', serif;
+  border-radius:.5em;
+  padding:.5em 1em;
+  color:#666;
+  border:1px solid #DCDCDC;
+  width:20%;
+  margin: 0 auto;
+  font-size:1.5em;
+}
 /*body section:first-child{width:100%;overflow:auto;background-color:#fff;height:auto; margin-top: 5em; padding:5;}
 */
 
@@ -140,3 +149,70 @@ p{
   color: #444;
   font: 1.2rem/1.6rem normal georgia, serif;
 }
+
+.error{width:30%;margin:0 auto;color:#fff;font-family:'Montserrat', sans-serif;font-size:2em;text-align:center;}
+
+
+/********** HEADER ***********/
+
+
+
+/********** FORM DEFIS ***********/
+#form_defi{
+  margin: 0 auto;
+  width: 40%;
+  margin-top: 5%;
+}
+
+#form_defi label{
+  margin: 0 auto;
+  width: 90%;
+  padding-left: 10px;
+  color:#EEEBCD;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+#form_defi input, select{
+  width: 90%;
+  height: 30px;
+  border-radius: 4px;
+  margin: 10px;
+  padding: 2px;
+  padding-left: 5px;
+}
+
+#form_defi input[type="submit"]{
+  width: 92%;
+  color: #12698B;
+  font-weight: bold;
+  font-size: 1.5em;
+  padding: 0;
+}
+
+/********** FORM SIGNIN ***********/
+
+#signin{
+  margin: 0 auto;
+  width: 25%;
+  margin-top: 5%;
+}
+
+#signin input{
+  width: 90%;
+  height: 30px;
+  border-radius: 4px;
+  margin: 10px;
+  padding: 2px;
+  padding-left: 5px;
+}
+
+#signin input[type="submit"]{
+  width: 94%;
+  color: #12698B;
+  font-weight: bold;
+  font-size: 1.5em;
+  padding: 0;
+}
+
+
