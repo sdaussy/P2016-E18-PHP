@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="triangle">
 
 </div>
@@ -15,13 +16,16 @@
       
   </div>
   
-  <div id="menu" class="menu">
-    <?php if(isset($SESSION['Pseudo'])){ ?>
-    <a href="signout/">Déconnexion</i></a>
-    <?php }else{?>
-    <a href="signin/" class="toggle">Connexion</a>
-      <?php }?>
-  </div>
+  <nav id="menu" class="menu">
+    <ul>
+      <?php if(isset($SESSION['Pseudo'])){ ?>
+      <li><a href="">Mon profil</a></li>
+      <li><a href="signout/">Déconnexion</a></li>
+      <?php }else{?>
+      <li><a href="signin/" class="toggle">Connexion</a></li>
+        <?php }?>
+    </ul>
+  </nav>
 </div>
 
 
@@ -29,13 +33,3 @@
 
 
   
-
-
-<!--<nav>
-    <ul>
-      <li></li>
-      <li><a href="defier">Défier</a></li>
-      <li><a href="repondre">Répondre</a></li>
-      <li><a href="profil">Mon profil</a></li>
-    </ul>
-</nav>  -->

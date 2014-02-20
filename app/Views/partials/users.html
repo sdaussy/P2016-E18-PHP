@@ -1,0 +1,13 @@
+
+  <?php
+if(isset($users)):
+foreach($users as $user):
+//pour chaque élement de $ users que j'appelle $ user je fais ...
+ ?>
+
+<li><a><?php echo $user->Pseudo; ?></a></li>
+<?php
+endforeach;
+endif;
+?>
+

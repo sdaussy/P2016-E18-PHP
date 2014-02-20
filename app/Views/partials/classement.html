@@ -1,4 +1,17 @@
-<?php ?>
-    <h1>Classement</h1>
-    <?php ?>
+
+<h1>Classement</h1>
+
+  <?php
+if(isset($usersClassement)):
+$compteur=0;
+foreach($usersClassement as $user):
+//pour chaque élement de $ users que j'appelle $ user je fais ...
+	$compteur++;
+ ?>
+<li><?php echo $compteur; ?><?php echo $user['Pseudo']; ?><?php echo $user['Niveau']?></li>
+<?php
+endforeach;
+endif;
+?>
+
 

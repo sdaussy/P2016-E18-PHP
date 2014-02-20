@@ -1,1 +1,12 @@
-liste defi
+<h1>Les défis envoyés</h1>
+Ils ont gagnés...
+<br/>
+<?php if(isset($usersClassement)):
+foreach($usersClassement as $question):
+?>
+<li><?php echo $question['Pseudo']; ?><?php echo $question['nomDefi']?><?php echo $question['Question']?></li>
+<?php
+endforeach;
+endif;
+?>
+Ils ont perdus...

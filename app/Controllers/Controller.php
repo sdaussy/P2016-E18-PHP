@@ -12,6 +12,7 @@ protected $model;
       //$f3->reroute('/signin');
     }
     
+    
     $modelName=substr(get_class($this),0,strpos(get_class($this),'_')+1).'model';
     if(class_exists($modelName)){
       $this->model=new $modelName();
