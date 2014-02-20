@@ -9,12 +9,12 @@
 
 <form action="defi/envoi" method="post" name="form_defi" id="form_defi" enctype="multipart/form-data">
 	<p>Veuilliez remplir tous les champs du formulaire</p>
-	<label>Nom du défi </label>
+	
 	<input type="text" name="nom_defi" id="nom_defi" placeholder="NOM DE VOTRE DÉFI" required>
-	<label>A qui ? </label>
+	
 	<input type="text" name="a_qui" placeholder="RECHERCHER UN AMI" autocomplete="off" required>	
 
-	<label>Catégorie de votre défi</label>
+	
 	<select name="categories">
 		<option value="1">Musique</option>
 		<option value="2">Arts-Littérature</option>
@@ -23,12 +23,13 @@
 		<option value="5">Divertissement</option>
 		<option value="6">Sport</option>
 	</select>
+
 	<input type="file" name="file" />
-	<label>Votre question </label>
+	
 	<input type="text" name="question" id="question" placeholder="VOTRE QUESTION" required>
-	<label>Réponse souhaitée </label>
+	
 	<input type="text" name="reponse_voulue" id="reponse_voulue" placeholder="RÉPONSE SOUHAITÉE" required>
-	<label>Message perso </label>
+	
 	<input type="text" name="msg_perso" id="msg_perso" placeholder="MESSAGE PERSONNEL">	
 	<input type="submit" name="envoi_defi" id="envoi_defi" value="Envoyez">
 </form>
@@ -38,9 +39,10 @@
     <li><a href="users/cortexiens" data-filter="cortexiens">Cortexiens</a></li>
     <li><a href="users/amis" data-filter="amis">Mes amis</a></li>
 </ul>-->
-<ul class="users">
-  <?php require('users.html'); ?>
-</ul>
 </section>
 
 </section>
+
+<ul class="users">
+  <?php require('users.html'); ?>
+</ul>
