@@ -19,6 +19,7 @@ $('.index a').on('click',function(e){
 	}
 	$('input[name="name"]').val();
 });
+
 $('.users').on('click','a:first-of-type',function(e){
 	e.preventDefault();
 	$.ajax({
@@ -42,7 +43,8 @@ $.getJSON($(this).attr('href'))
 })
 })
 
-$('input[name="name"]').on('keyup',function(){
+$('input[name="pseudo"]').on('keyup',function(){
+	console.log('dedans');
 	var $this=$(this);
 	var $form=$(this).parent('form');
 	var datas={'name':$this.val()};
@@ -52,11 +54,13 @@ $('input[name="name"]').on('keyup',function(){
 		url:$form.attr('action'),
 		method:$form.attr('method'),
 		data:datas
+
 		//serialize renvoie un json name : valeur 
 		//creer sous forme de notation objet les données du form
 	})
 	.success(function(data){
 		$('.users').html(data);
+		console.log('user envoyé');
 
 	})
 });

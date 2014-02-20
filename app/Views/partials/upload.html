@@ -1,0 +1,7 @@
+<?php if(isset($error)): ?> 
+<div class="error"><?php echo $error; ?></div>
+<?php endif;?>  
+<form action="upload/" id="upload" method="post" enctype="multipart/form-data">
+  <input type="file" name="file" />
+  <input type="submit" value="Upload"/>
+</form>

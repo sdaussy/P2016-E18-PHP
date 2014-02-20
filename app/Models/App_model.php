@@ -29,20 +29,27 @@ private $mapper;
   }
 
   public function getForm_defi($params){ 
-    $map=$this->getMapper('question');  
-    //$map->load();
-    //$map->nomDefi=$params['nomDefi'];
-    $map->save(array('nomDefi=?',$params['nomDefi']));
+    $form=$this->getMapper('question');
+    $form->nomDefi=$params['nomDefi'];
+    $form->Question=$params['Question'];
+    $form->Reponse=$params['Reponse'];
+    $form->id_User=$params['id_User'];
+    $form->id_Cat=$params['id_Cat'];
+    $form->save();
 
  }
   public function getForm_reponse($f3){
     
   }
 
-
+  public function getUsersClassement($params){
+    $map=$this->getMapper('user');
+   return $map->find(null,array('order'=>'Niveau DESC'));
+ 
+  }
  public function getUsers($params){
    $map=$this->getMapper('user');
-   return $this->mapper->find(array('Pseudo=?',$params['Pseudo']),array('order'=>'id_User'));
+   return $map->find(array('Pseudo=?',$params['Pseudo']),array('order'=>'id_User'));
    // trouve dans promo la data promo passée en param ordonnée par lastname 
  }
  
@@ -59,11 +66,11 @@ private $mapper;
  }
   
   public function favorite ($params){
-  	$map=$this->getMapper('wififav');
-  	$favorite=$map->load(array('favId=? and logId=?',$params['favId'],$params['logId']));
+  	$map=$this->getMapper('favoris');
+  	$favorite=$map->load(array('fav_Id=? and id_User=?',$params['favId'],$params['idUser']));
   	if(!$favorite){
-  		$map->favid=$params['favId'];
-  		$map->logId=$params['logId'];
+  		$map->fav_Id=$params['favId'];
+  		$map->id_User=$params['idUser'];
   		$map->save();
   		return true;
   	}
