@@ -1,1 +1,20 @@
 <h1>Répondre</h1>
+  <?php
+if(isset($liste_reponse)):
+foreach($liste_reponse as $reponse):
+ ?>
+<ul>
+<li><?php echo $reponse['Pseudo']?></li>
+<li><?php echo $reponse['nomDefi']?></li>
+<li><?php echo $reponse['Question']?></li>
+<li><?php echo $reponse['Message']?></li>
+	<?php
+	if($reponse['Image']!=null):
+	 $img=$reponse['Image'] ?>
+	<li><img src="<?php echo $img ?>" alt="<?php $img ?>"/></li>
+	<?php endif;?>
+<li><a href="reponse/@reponse">Go !</a></li>
+<?php
+endforeach;
+endif;
+?>
