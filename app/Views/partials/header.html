@@ -1,20 +1,33 @@
- 
-  <nav id="nav-global">
+<div class="triangle">
+
+</div>
+
+<div class="content_menu">
+
+  <nav id="nav-global" class="menu">
     <a href="#">Home</a>
     <?php if(isset($SESSION['Pseudo'])){ ?>
     <a href="defi/">Defis</a>
     <?php }?>
-
-    
   </nav>
-
-  <div id="menu">
+ 
+  <div class="logo">
+      
+  </div>
+  
+  <div id="menu" class="menu">
     <?php if(isset($SESSION['Pseudo'])){ ?>
     <a href="signout/">Déconnexion</i></a>
     <?php }else{?>
     <a href="signin/" class="toggle">Connexion</a>
       <?php }?>
   </div>
+</div>
+
+
+
+
+
   
 
 
