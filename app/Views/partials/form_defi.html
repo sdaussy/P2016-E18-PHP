@@ -1,6 +1,8 @@
-<form action="defi/envoi" method="post" name="form_defi" id="form_defi">
+<form action="defi/envoi" method="post" name="form_defi" id="form_defi" enctype="multipart/form-data">
 	<label>Nom du défi </label>
-	<input type="text" name="nom_defi" id="nom_defi" placeholder="Nom de votre défi" required>	
+	<input type="text" name="nom_defi" id="nom_defi" placeholder="Nom de votre défi" required>
+	<label>A qui ? </label>
+	<input type="text" name="a_qui" placeholder="Rechercher un ami" autocomplete="off" required>	
 	<label>Catégorie de votre défi</label>
 	<select name="categories">
 		<option value="1">Musique</option>
@@ -10,6 +12,7 @@
 		<option value="5">Divertissement</option>
 		<option value="6">Sport</option>
 	</select>
+	<input type="file" name="file" />
 	<label>Votre question </label>
 	<input type="text" name="question" id="question" placeholder="Votre question" required>
 	<label>Réponse souhaitée </label>
@@ -18,14 +21,13 @@
 	<input type="text" name="msg_perso" id="msg_perso" placeholder="Laissez un message à votre ami">	
 	<input type="submit" name="envoi_defi" id="envoi_defi">
 </form>
-<?php require('upload.html'); ?>
-<form action="\" method="post">
-	<input type="text" name="pseudo" placeholder="Rechercher un ami" autocomplete="off"/>
-</form>
-<ul class="index">
+
+	
+
+<!--<ul class="index">
     <li><a href="users/cortexiens" data-filter="cortexiens">Cortexiens</a></li>
     <li><a href="users/amis" data-filter="amis">Mes amis</a></li>
-</ul>
+</ul>-->
 <ul class="users">
   <?php require('users.html'); ?>
 </ul>

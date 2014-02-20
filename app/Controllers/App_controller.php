@@ -49,13 +49,28 @@ class App_controller extends Controller{
   public function getDefi($f3){
     $this->tpl['sync']='defi.html';
   }
+  public function getDefigagne($f3){
+    $donnees=$this->model->getDefigagne(array('Pseudo'=>$f3->get('PARAMS.Pseudo'),'nomDefi'=>$f3->get('PARAMS.nomDefi'),'Question'=>$f3->get('PARAMS.Question'),'Image'=>$f3->get('PARAMS.Image'),'id_User'=>$f3->get('PARAMS.id_User'),'Reponse_User2'=>$f3->get('PARAMS.Reponse_User2'),'Reponse'=>$f3->get('PARAMS.Reponse'),'id'=>$f3->get('SESSION.id')));
+    $f3->set('defi_gagne', $donnees);
+    $this->tpl['sync']='defi.html';
+  }
 
-  public function getReponse($f3){
+  public function getReponse($f3){   
+    $donnees=$this->model->getReponse(array('Image'=>$f3->get('PARAMS.Image'),'Pseudo'=>$f3->get('PARAMS.Pseudo'),'Question'=>$f3->get('PARAMS.Question'),'Message'=>$f3->get('PARAMS.Message'),'nomDefi'=>$f3->get('PARAMS.nomDefi'),'id_User'=>$f3->get('SESSION.id'),'Reponse_User2'=>$f3->get('PARAMS.Reponse_User2')));
+    $f3->set('liste_reponse', $donnees);
     $this->tpl['sync']='reponse.html';
   }
 
   public function getForm_defi($f3){
-    $this->model->getForm_defi(array('nomDefi'=>$f3->get('POST.nom_defi'),'Question'=>$f3->get('POST.question'),'Reponse'=>$f3->get('POST.reponse_voulue'),'id_User'=>$f3->get('SESSION.id'),'id_Cat'=>$f3->get('POST.categories')));
+    switch($f3->get('VERB')){
+      case 'POST':
+        \Web::instance()->receive(function($file) use ($f3){
+        $monfichier=$file['name'];
+        $f3->set('monfichier',$monfichier);
+        },true,true);
+      break;
+    }
+   $this->model->getForm_defi(array('nomDefi'=>$f3->get('POST.nom_defi'),'Question'=>$f3->get('POST.question'),'Reponse'=>$f3->get('POST.reponse_voulue'),'id_User'=>$f3->get('SESSION.id'),'Pseudo'=>$f3->get('SESSION.Pseudo'),'id_Cat'=>$f3->get('POST.categories'),'Message'=>$f3->get('POST.msg_perso'),'Image'=>$f3->get('monfichier')));
     $f3->reroute('/defi');
   }
   public function getForm_reponse($f3){
@@ -88,16 +103,16 @@ class App_controller extends Controller{
     exit;
   }
   
-  public function upload($f3){
-    $this->tpl['sync']='upload.html';
+ /* public function upload($f3){
+    //$this->tpl['sync']='upload.html';
     switch($f3->get('VERB')){
       case 'POST':
         \Web::instance()->receive(function($file){
-           $this->tpl['sync']='defi.html';
+           //$this->tpl['sync']='defi.html';
         },true,true);
       break;
     }
-  }
+  }*/
 
   
 

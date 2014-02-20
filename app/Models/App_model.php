@@ -23,9 +23,15 @@ private $mapper;
   public function getDefi($f3){
 
   }
-
-  public function getReponse($f3){
-
+  public function getDefigagne($params){
+    return $defi_gagne=$this->dB->exec('SELECT Pseudo, nomDefi, Question, Image, id_User, Reponse, Reponse_User2 FROM question WHERE id_User = :truc and Reponse_User2 = :machin',array(':truc'=>$params['id'], ':machin'=>$params['Reponse']));
+    
+  }
+  public function getReponse($params){
+     //$liste_reponse=$this->getMapper('question');
+    return $liste_reponse=$this->dB->exec('SELECT Image, Pseudo, Question, nomDefi, Message, id_User2, Reponse_User2 FROM question WHERE id_User2 = :truc and Reponse_User2 = :machin',array(':truc'=>$params['id_User'], ':machin'=>''));
+    //return $liste_reponse->load(array('Question and nomDefi and Message and id_User2=?',$params['id_User']));
+  //id_User2=?',$params['id_User']
   }
 
   public function getForm_defi($params){ 
@@ -34,7 +40,10 @@ private $mapper;
     $form->Question=$params['Question'];
     $form->Reponse=$params['Reponse'];
     $form->id_User=$params['id_User'];
+    $form->Pseudo=$params['Pseudo'];
     $form->id_Cat=$params['id_Cat'];
+    $form->Message=$params['Message'];
+    $form->Image=$params['Image'];
     $form->save();
 
  }

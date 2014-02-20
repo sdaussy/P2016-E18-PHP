@@ -1,10 +1,13 @@
 <h1>Les défis envoyés</h1>
 Ils ont gagnés...
 <br/>
-<?php if(isset($usersClassement)):
-foreach($usersClassement as $question):
+
+<?php 
+print_r($defi_gagne);
+if(isset($defi_gagne)):
+foreach($defi_gagne as $un_defi_gagne):
 ?>
-<li><?php echo $question['Pseudo']; ?><?php echo $question['nomDefi']?><?php echo $question['Question']?></li>
+<li><?php echo $un_defi_gagne['Pseudo']; ?><?php echo $un_defi_gagne['nomDefi']?><?php echo $un_defi_gagne['Question']?></li>
 <?php
 endforeach;
 endif;
