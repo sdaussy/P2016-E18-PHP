@@ -1,6 +1,7 @@
 body{
   font-family:'Verdana', sans-serif;
   font-size:75%;
+  font-weight: normal;
   min-height:100%;
   overflow:none;
   background-image: url('media/bg1.jpg');
@@ -8,12 +9,13 @@ body{
    background-size: cover;
 }
 
-a, a:visited {text-decoration:none;color:#6E6E6E;}
+a, a:visited {text-decoration:none;}
+
 header{
 	background-color: #fff;
-
 	box-shadow:2px 0 10px rgba(0,0,0,.5);
-  position:relative;z-index:2;
+  position:relative;
+  z-index:2;
 }
 
 header nav ul li{
@@ -33,7 +35,7 @@ ul a{text-transform:uppercase;}
 header a, header form{display:inline-block;vertical-align:middle;}
 
 input[name="name"]{
-  font-family:'Arapey', serif;
+  font-family:'Verdana', sans-serif;
   border-radius:.5em;
   padding:.5em 1em;
   color:#666;
@@ -146,7 +148,6 @@ header{
   margin: 1rem 0 0;
   padding: 1rem 0 0;
   color: #000;
-  font-family: helvetica, arial, serif;
 }
 
 #menu .toggle{
@@ -188,27 +189,41 @@ article{
   display: block;
 }
 
-h1{
-  font: 2.5rem/2.8rem normal georgia, serif;
+.error{
+  width:30%;margin:0 auto;color:#fff;
+  font-family:'Verdana', sans-serif;
+  font-size:2em;
+  text-align:center;
 }
 
-p{
-  color: #444;
-  font: 1.2rem/1.6rem normal georgia, serif;
+
+/********** CONTENT ***********/
+.main{
+  margin-top: 120px;
 }
-
-.error{width:30%;margin:0 auto;color:#fff;font-family:'Montserrat', sans-serif;font-size:2em;text-align:center;}
-
-
-/********** HEADER ***********/
-
-
 
 /********** FORM DEFIS ***********/
+.content_defi{
+  position: relative; 
+  width:100%; 
+  margin: 0 auto;
+}
+.content_left{
+  width: 40%; 
+  height: 600px;
+  float: left;
+  border-right: 2px dotted #2f516f;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 20px;
+}
+
 #form_defi{
   margin: 0 auto;
   width: 40%;
-  margin-top: 5%;
+  float: left;
+  margin-left: 5%;
+  margin-top: 20px;
 }
 
 #form_defi label{
@@ -222,22 +237,58 @@ p{
 
 #form_defi input, select{
   width: 90%;
-  height: 30px;
-  border-radius: 4px;
-  margin: 10px;
+  height: 40px;
+  margin: 4px;
   padding: 2px;
   padding-left: 5px;
+  border:none;
+  background-color: #d4d4d4;
 }
 
 #form_defi input[type="submit"]{
-  width: 92%;
-  color: #12698B;
-  font-weight: bold;
+  height: 40px;
+  margin: 4px;
+  border: none;
+  background-color: #2f516f;
+  padding-left: 5px;
+  width: 91%;
+  color: #FFFFFF;
+  font-weight: normal;
   font-size: 1.5em;
   padding: 0;
 }
 
 /********** FORM SIGNIN ***********/
+
+.content_page{
+  width: 100%;
+  height: auto;
+  background-color: #fff;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  position: relative;
+  clear: both;
+  margin: 0 auto;
+}
+
+.content_page h2{
+  width: 100%;
+  color: #fff;
+  background-color: #2f516f;
+  height: 40px;
+  text-align: center;
+  font-family:'Verdana', sans-serif;
+  padding-top: 15px;
+  font-weight: normal;
+}
+
+.content_page form p{
+  color:#2f516f;
+  text-align: center;
+  padding:0;
+  margin:0;
+  font-size: 1.1em;
+}
 
 #signin{
   margin: 0 auto;
@@ -245,21 +296,130 @@ p{
   margin-top: 5%;
 }
 
+/* all */
+::-webkit-input-placeholder { color:#8c8c8c; font-weight: bold; }
+::-moz-placeholder { color:#8c8c8c; font-weight: bold;} /* firefox 19+ */
+:-ms-input-placeholder { color:#8c8c8c; font-weight: bold;} /* ie */
+input:-moz-placeholder { color:#8c8c8c; font-weight: bold;}
+
 #signin input{
   width: 90%;
-  height: 30px;
-  border-radius: 4px;
-  margin: 10px;
+  height: 40px;
+  margin: 4px;
   padding: 2px;
   padding-left: 5px;
+  border:none;
+  background-color: #d4d4d4;
 }
 
 #signin input[type="submit"]{
+  height: 40px;
+  margin: 4px;
+  border: none;
+  background-color: #2f516f;
+  padding-left: 5px;
   width: 94%;
-  color: #12698B;
-  font-weight: bold;
+  color: #FFFFFF;
+  font-weight: normal;
   font-size: 1.5em;
   padding: 0;
 }
 
 
+/**SLIDER**/
+
+/* image replacement */
+.graphic, #prevBtn, #nextBtn, #slider1prev, #slider1next{
+        margin:0;
+        padding:0;
+        display:block;
+        overflow:hidden;
+        text-indent:-8000px;
+        }
+/* // image replacement */
+#container{ 
+  margin:0 auto;
+  position:relative;
+  text-align:left;
+  width:80%;
+  margin-top: 100px;
+  margin-bottom:2em;
+  } 
+
+#content{
+  position:relative;
+  }     
+
+/* Easy Slider */
+
+#slider ul, #slider li,
+#slider2 ul, #slider2 li{
+  margin:0;
+  padding:0;
+  list-style:none;
+  }
+#slider2{margin-top:1em;}
+#slider li, #slider2 li{ 
+  /* 
+    define width and height of list item (slide)
+    entire slider area will adjust according to the parameters provided here
+  */ 
+  width:600px;
+  height:400px;
+  overflow:hidden; 
+  } 
+#prevBtn, #nextBtn,
+#slider1next, #slider1prev{ 
+  display:block;
+  width:30px;
+  height:77px;
+  position:absolute;
+  left:-30px;
+  top:71px;
+  z-index:1000;
+  } 
+#nextBtn, #slider1next{ 
+  left:800px;
+  }                           
+#prevBtn a, #nextBtn a,
+#slider1next a, #slider1prev a{  
+  display:block;
+  position:relative;
+  width:30px;
+  height:77px;
+  background:url('media/btn_prev.png') no-repeat 0 0; 
+  } 
+#nextBtn a, #slider1next a{ 
+  background:url('media/btn_next.png') no-repeat 0 0; 
+  } 
+  
+/* numeric controls */  
+
+ol#controls{
+  margin:1em 0;
+  padding:0;
+  height:28px;  
+  }
+ol#controls li{
+  margin:0 10px 0 0; 
+  padding:0;
+  float:left;
+  list-style:none;
+  height:28px;
+  line-height:28px;
+  }
+ol#controls li a{
+  float:left;
+  height:28px;
+  line-height:28px;
+  border:1px solid #ccc;
+  background:#DAF3F8;
+  color:#555;
+  padding:0 10px;
+  text-decoration:none;
+  }
+ol#controls li.current a{
+  background:#5DC9E1;
+  color:#fff;
+  }
+ol#controls li a:focus, #prevBtn a:focus, #nextBtn a:focus{outline:none;}

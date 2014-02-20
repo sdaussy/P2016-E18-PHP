@@ -1,10 +1,14 @@
  <?php if(isset($error)): ?> 
 <div class="error"><?php echo $error; ?></div>
 <?php endif;?>  
-<form  method="post" action="signin/" id="signin" autocomplete="on"> 
-    <input id="pseudo_user" name="pseudo_user" required="required" type="text" placeholder="Pseudo" />
-    <input id="pswd_user" name="pswd_user" required="required" type="password" placeholder="Password"/> 
-    <input type="submit" name="valid_signin" value="Connexion"/> 
-</form>
+<section class="content_page">
+	<h2>Se Connecter</h2>
 
+	<form  method="post" action="signin/" id="signin" autocomplete="on"> 
+		<p>Veuilliez remplir tous les champs</p>
+	    <input id="pseudo_user" name="pseudo_user" required="required" type="text" placeholder="VOTRE PSEUDO" />
+	    <input id="pswd_user" name="pswd_user" required="required" type="password" placeholder="MOT DE PASSE"/> 
+	    <input type="submit" name="valid_signin" value="Connexion"/> 
+	</form>
+</section>
   

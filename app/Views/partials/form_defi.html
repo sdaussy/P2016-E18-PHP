@@ -1,6 +1,18 @@
+
+
+<section class="content_page">
+	<h2>Nouveau Défi</h2>
+
+
+
+<section class="content_defi">
+	<section class="content_left">
+		<img src="public/stylesheet/media/defi.png" style="margin: 0 auto; display: block;">
+	</section>
 <form action="defi/envoi" method="post" name="form_defi" id="form_defi">
+	<p>Veuilliez remplir tous les champs du formulaire</p>
 	<label>Nom du défi </label>
-	<input type="text" name="nom_defi" id="nom_defi" placeholder="Nom de votre défi" required>	
+	<input type="text" name="nom_defi" id="nom_defi" placeholder="NOM DE VOTRE DEFI" required>	
 	<label>Catégorie de votre défi</label>
 	<select name="categories">
 		<option value="1">Musique</option>
@@ -11,15 +23,17 @@
 		<option value="6">Sport</option>
 	</select>
 	<label>Votre question </label>
-	<input type="text" name="question" id="question" placeholder="Votre question" required>
+	<input type="text" name="question" id="question" placeholder="VOTRE QUESTION" required>
 	<label>Réponse souhaitée </label>
-	<input type="text" name="reponse_voulue" id="reponse_voulue" placeholder="Réponse souhaitée" required>
+	<input type="text" name="reponse_voulue" id="reponse_voulue" placeholder="RÉPONSE SOUHAITÉE" required>
 	<label>Message perso </label>
-	<input type="text" name="msg_perso" id="msg_perso" placeholder="Laissez un message à votre ami">	
-	<input type="submit" name="envoi_defi" id="envoi_defi">
+	<input type="text" name="msg_perso" id="msg_perso" placeholder="MESSAGE PERSONNEL">	
+	<input type="submit" name="envoi_defi" id="envoi_defi" value="Envoyez">
 </form>
+
 <?php require('upload.html'); ?>
-<form action="\" method="post">
+
+<form action="\" method="post" style="clear: both; float: inherit;">
 	<input type="text" name="pseudo" placeholder="Rechercher un ami" autocomplete="off"/>
 </form>
 <ul class="index">
@@ -29,3 +43,6 @@
 <ul class="users">
   <?php require('users.html'); ?>
 </ul>
+</section>
+
+</section>
