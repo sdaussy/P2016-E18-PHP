@@ -33,9 +33,13 @@ private $mapper;
     //return $liste_reponse->load(array('Question and nomDefi and Message and id_User2=?',$params['id_User']));
   //id_User2=?',$params['id_User']
   }
+   public function getMareponse($params){ 
+    
+  }
 
   public function getForm_defi($params){ 
     $form=$this->getMapper('question');
+    $form->id_User2=$params['id_User2'];
     $form->nomDefi=$params['nomDefi'];
     $form->Question=$params['Question'];
     $form->Reponse=$params['Reponse'];

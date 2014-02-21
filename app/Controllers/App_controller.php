@@ -60,17 +60,20 @@ class App_controller extends Controller{
     $f3->set('liste_reponse', $donnees);
     $this->tpl['sync']='reponse.html';
   }
+  public function getMareponse($f3){ 
+    $this->tpl['sync']='single_reponse.html';
+  }
 
   public function getForm_defi($f3){
     switch($f3->get('VERB')){
       case 'POST':
         \Web::instance()->receive(function($file) use ($f3){
-        $monfichier=$file['name'];
-        $f3->set('monfichier',$monfichier);
+          $monfichier=$file['name'];
+          $f3->set('monfichier',$monfichier);                      
         },true,true);
       break;
     }
-   $this->model->getForm_defi(array('nomDefi'=>$f3->get('POST.nom_defi'),'Question'=>$f3->get('POST.question'),'Reponse'=>$f3->get('POST.reponse_voulue'),'id_User'=>$f3->get('SESSION.id'),'Pseudo'=>$f3->get('SESSION.Pseudo'),'id_Cat'=>$f3->get('POST.categories'),'Message'=>$f3->get('POST.msg_perso'),'Image'=>$f3->get('monfichier')));
+   $this->model->getForm_defi(array('id_User2'=>$f3->get('POST.a_qui'),'nomDefi'=>$f3->get('POST.nom_defi'),'Question'=>$f3->get('POST.question'),'Reponse'=>$f3->get('POST.reponse_voulue'),'id_User'=>$f3->get('SESSION.id'),'Pseudo'=>$f3->get('SESSION.Pseudo'),'id_Cat'=>$f3->get('POST.categories'),'Message'=>$f3->get('POST.msg_perso'),'Image'=>$f3->get('monfichier')));
     $f3->reroute('/defi');
   }
   public function getForm_reponse($f3){
@@ -113,7 +116,12 @@ class App_controller extends Controller{
       break;
     }
   }*/
-
+/*\Web::instance()->receive(function($img) use($f3) {
+              $img['name']=$img['name']."_20";
+              $img = new Image('monfichier');
+              $img->resize(50,70,TRUE,TRUE);
+              $f3->set('monimage',$img);
+        },true,true);*/
   
 
 }
