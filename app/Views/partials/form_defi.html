@@ -1,11 +1,9 @@
 
-<section class="content_page">
+
 	<h2>Nouveau Défi</h2>
 
 <section class="content_defi">
-	<section class="content_left">
-		<img src="public/stylesheet/media/defi.png" style="margin: 0 auto; display: block;">
-	</section>
+
 
 <form action="defi/envoi" method="post" name="form_defi" id="form_defi" enctype="multipart/form-data">
 	<p>Veuilliez remplir tous les champs du formulaire</p>
@@ -34,6 +32,9 @@
 	<input type="submit" name="envoi_defi" id="envoi_defi" value="Envoyez">
 </form>
 
+	<section class="content_left">
+		<!--<img src="public/stylesheet/media/defi.png" style="margin: 0 auto; display: block;">-->
+	</section>
 <!--<ul class="index">
 
     <li><a href="users/cortexiens" data-filter="cortexiens">Cortexiens</a></li>
@@ -41,7 +42,8 @@
 </ul>-->
 </section>
 
-</section>
+	
+
 
 <ul class="users">
   <?php require('users.html'); ?>
