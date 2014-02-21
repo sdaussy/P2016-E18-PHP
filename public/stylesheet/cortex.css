@@ -199,72 +199,14 @@ article{
 
 /********** CONTENT ***********/
 .main{
-  margin-top: 120px;
+  margin-top: 100px;
 }
-
-/********** FORM DEFIS ***********/
-.content_defi{
-  position: relative; 
-  width:100%; 
-  margin: 0 auto;
-}
-.content_left{
-  width: 40%; 
-  height: 600px;
-  float: left;
-  border-right: 2px dotted #2f516f;
-  margin-left: 5%;
-  margin-right: 5%;
-  margin-top: 20px;
-}
-
-#form_defi{
-  margin: 0 auto;
-  width: 40%;
-  float: left;
-  margin-left: 5%;
-  margin-top: 20px;
-}
-
-#form_defi label{
-  margin: 0 auto;
-  width: 90%;
-  padding-left: 10px;
-  color:#EEEBCD;
-  font-weight: bold;
-  font-size: 1.2em;
-}
-
-#form_defi input, select{
-  width: 90%;
-  height: 40px;
-  margin: 4px;
-  padding: 2px;
-  padding-left: 5px;
-  border:none;
-  background-color: #d4d4d4;
-}
-
-#form_defi input[type="submit"]{
-  height: 40px;
-  margin: 4px;
-  border: none;
-  background-color: #2f516f;
-  padding-left: 5px;
-  width: 91%;
-  color: #FFFFFF;
-  font-weight: normal;
-  font-size: 1.5em;
-  padding: 0;
-}
-
-/********** FORM SIGNIN ***********/
 
 .content_page{
   width: 100%;
   height: auto;
   background-color: #fff;
-  padding-top: 20px;
+  padding-top: 10px;
   padding-bottom: 20px;
   position: relative;
   clear: both;
@@ -281,6 +223,67 @@ article{
   padding-top: 15px;
   font-weight: normal;
 }
+
+/********** FORM DEFIS ***********/
+.content_defi{
+  position: relative; 
+  width:100%; 
+  margin: 0 auto;
+}
+
+.content_left{
+  width: 40%; 
+  height: 500px;
+  border-right: 2px dotted #2f516f;
+  margin-left: 10%;
+  margin-top: 20px;
+  background-image: url('media/defi.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50%;
+}
+
+#form_defi{
+  margin: 0 auto;
+  width: 40%;
+  float: right;
+  margin-top: 20px;
+  margin-right: 20px;
+}
+
+/*#form_defi label{
+  margin: 0 auto;
+  width: 90%;
+  padding-left: 10px;
+  color:#EEEBCD;
+  font-weight: bold;
+  font-size: 1.2em;
+}*/
+
+#form_defi input, select{
+  width: 80%;
+  height: 40px;
+  margin: 4px;
+  padding: 2px;
+  padding-left: 5px;
+  border:none;
+  background-color: #d4d4d4;
+}
+
+#form_defi input[type="submit"]{
+  height: 40px;
+  margin: 4px;
+  border: none;
+  background-color: #2f516f;
+  padding-left: 5px;
+  width: 81%;
+  color: #FFFFFF;
+  font-weight: normal;
+  font-size: 1.5em;
+  padding: 0;
+}
+
+/********** FORM SIGNIN ***********/
 
 .content_page form p{
   color:#2f516f;
