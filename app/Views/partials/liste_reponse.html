@@ -1,9 +1,10 @@
-<h1>Répondre</h1>
+<h2>Répondre</h2>
+
   <?php
 if(isset($liste_reponse)):
 foreach($liste_reponse as $reponse):
  ?>
-<ul>
+<ul class="reponse">
 <li><?php echo $reponse['Pseudo']?></li>
 <li><?php echo $reponse['nomDefi']?></li>
 <li><?php echo $reponse['Question']?></li>
