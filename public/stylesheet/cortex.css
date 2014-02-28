@@ -328,7 +328,7 @@ header{
   margin: 0 auto;
 }
 
-.content_page h2{
+h2{
   width: 100%;
   color: #2f516f;
   height: 40px;
@@ -399,7 +399,23 @@ header{
 
 /********** FORM SIGNIN ***********/
 
-.content_page form p{
+.content_page_log{
+  margin: 0 auto;
+  width: 50%;
+}
+.content_page_log > h2{
+width: 100%;
+color: #2f516f;
+height: 40px;
+text-align: left;
+font-family: Verdana, sans-serif;
+padding-top: 15px;
+font-weight: normal;
+border-bottom: 4px solid;
+font-size: 2em;
+}
+
+.content_page_log form p{
   color:#2f516f;
   text-align: center;
   padding:0;
@@ -408,8 +424,7 @@ header{
 }
 
 #signin{
-  margin: 0 auto;
-  width: 25%;
+  width: 50%;
 }
 
 /* all */
@@ -434,11 +449,33 @@ input:-moz-placeholder { color:#8c8c8c; font-weight: bold;}
   border: none;
   background-color: #2f516f;
   padding-left: 5px;
-  width: 94%;
-  color: #FFFFFF;
+  width: 55%;
+  color: #f7f7f7;
   font-weight: normal;
   font-size: 1.5em;
   padding: 0;
+}
+
+.forget{ 
+  width: 50%;
+  background-color: #eaeaea;
+    float: right;
+}
+
+.forget a{
+  display: block;
+  height: 30px;
+  margin: 0 auto;
+  padding-top: 10px;
+  border: none;
+  padding-left: 5px;
+  background-color: #2f516f;
+  width: 55%;
+  color: #f7f7f7;
+  font-weight: normal;
+  font-size: 1.5em;
+  text-align: center;
+  margin-bottom: 22px;
 }
 
 /**REPONSE DEFI**/
