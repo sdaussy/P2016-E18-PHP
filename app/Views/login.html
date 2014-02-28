@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <base href="<?php echo $BASE; ?>/">
+  <!-- variable qui lit cortex -->
+        <title>Cortex - Connexion</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700|Arapey" rel="stylesheet" type="text/css" />
+  <link href="public/stylesheet/style.css" rel="stylesheet" type="text/css" />
+  <link href="public/stylesheet/mfglabs_iconset.css" rel="stylesheet" type="text/css" />
+  <link href="public/stylesheet/cortex.css" rel="stylesheet" type="text/css" />
+  
+</head>
+<body class="clearfix">
+  <header>
+    <?php require('partials/header.html'); ?> 
+  </header>
+<section class="main"> 
+    <?php require('partials/signin.html'); ?>   
+</section>
+
+<div style="clear:both; float:none;"></div>
+
+<footer>
+<?php require('partials/footer.html'); ?> 
+
+</footer>
+        <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script type="text/javascript" src="public/js/cortex.js"></script>
+</body>
+</html>
