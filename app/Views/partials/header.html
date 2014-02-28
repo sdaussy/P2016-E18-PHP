@@ -4,8 +4,9 @@
 
 <div class="content_menu">
 
-  <nav id="nav-global" class="menu">
+  <nav class="navglobal menu">
     <a href="#">Home</a>
+    <a href="#">Classement</a>
     <?php if(isset($SESSION['Pseudo'])){ ?>
     <a href="defi/">Defis</a>
     <a href="reponse/">Repondre</a>
@@ -16,15 +17,15 @@
       
   </div>
   
-  <nav id="menu" class="menu">
-    <ul>
+  <nav class="navuser menu">
       <?php if(isset($SESSION['Pseudo'])){ ?>
-      <li><a href="">Mon profil</a></li>
-      <li><a href="signout/">Déconnexion</a></li>
+      <a href="">Hello <?php echo $SESSION['Pseudo']; ?></a>
+      <a href="">Mon profil</a>
+      <a href="signout/">Déconnexion</a>
       <?php }else{?>
-      <li><a href="signin/" class="toggle">Connexion</a></li>
+      <a href="signin/" class="toggle">Connexion</a>
+      <a href="signin/" class="toggle">Inscription</a>
         <?php }?>
-    </ul>
   </nav>
 </div>
 
