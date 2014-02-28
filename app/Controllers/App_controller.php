@@ -61,7 +61,7 @@ class App_controller extends Controller{
     $this->tpl['sync']='reponse.html';
   }
   public function getMareponse($f3){ 
-    $this->tpl['sync']='single_reponse.html';
+    /*$this->tpl['sync']='single_reponse.html';*/
   }
 
   public function getForm_defi($f3){
@@ -71,10 +71,22 @@ class App_controller extends Controller{
           $monfichier=$file['name'];
           $f3->set('monfichier',$monfichier);                      
         },true,true);
+        $f3->set('UI','templates/;uploads/');
+        $f3->set('image','whatever');
+        $img=new \Image($f3->get('image').'jpg');
+        $img->resize(300,400);
+        file_put_contents($f3->get('image').$img->width().'x'.$img->height().'.jpg',$img->dump('jpeg'));
+
+        /*\Web::instance()->receive(function($file){
+              $file['name']=$file['name']."_20";              
+              $petite_img = new Image($file['name'],true);
+              $petite_img->resize(10,20,true,true);
+              $petite_img->save();
+        },true,true);*/
       break;
     }
    $this->model->getForm_defi(array('id_User2'=>$f3->get('POST.a_qui'),'nomDefi'=>$f3->get('POST.nom_defi'),'Question'=>$f3->get('POST.question'),'Reponse'=>$f3->get('POST.reponse_voulue'),'id_User'=>$f3->get('SESSION.id'),'Pseudo'=>$f3->get('SESSION.Pseudo'),'id_Cat'=>$f3->get('POST.categories'),'Message'=>$f3->get('POST.msg_perso'),'Image'=>$f3->get('monfichier')));
-    $f3->reroute('/defi');
+   $f3->reroute('/defi');
   }
   public function getForm_reponse($f3){
   
@@ -116,12 +128,7 @@ class App_controller extends Controller{
       break;
     }
   }*/
-/*\Web::instance()->receive(function($img) use($f3) {
-              $img['name']=$img['name']."_20";
-              $img = new Image('monfichier');
-              $img->resize(50,70,TRUE,TRUE);
-              $f3->set('monimage',$img);
-        },true,true);*/
+/**/
   
 
 }
