@@ -9,38 +9,7 @@ class App_controller extends Controller{
     //template sync
 
   }
-  public function signin($f3){
-    switch($f3->get('VERB')){
-      case 'GET':
-        $this->tpl['sync']='signin.html';
-      break;
-      case 'POST':
-        $auth=$this->model->signin(array(
-          'login'=>$f3->get('POST.pseudo_user'),
-          'password'=>$f3->get('POST.pswd_user')
-        ));
-        if(!$auth){
-          $f3->set('error',$f3->get('loginError'));
-          $this->tpl['sync']='signin.html';
-        }
-        else{
-          $user=array(
-            'id'=>$auth->id_User,
-            'Pseudo'=>$auth->Pseudo,
-            'Email'=>$auth->Email,
-            'imgProfil'=>$auth->img_Profil
-          );
-          $f3->set('SESSION',$user);
-          $f3->reroute('/defi');
-        }
-      break;
-    }
-  }
   
-  public function signout($f3){
-    session_destroy();
-    $f3->reroute('/');
-  }
   
   public function home($f3){
     $this->tpl['sync']='main.html';

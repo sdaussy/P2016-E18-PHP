@@ -8,7 +8,7 @@ protected $model;
   protected function __construct(){
     
     $f3=\Base::instance();
-    if($f3->get('PATTERN')!='/signin' &&!$f3->get('SESSION.id')){
+    if($f3->get('PATTERN')!='/login' &&!$f3->get('SESSION.id')){
       //$f3->reroute('/signin');      
     }
     
@@ -16,6 +16,8 @@ protected $model;
     if(class_exists($modelName)){
       $this->model=new $modelName();
     } 
+  
+   
   }
   
   public function afterroute($f3){

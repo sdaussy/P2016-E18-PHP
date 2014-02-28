@@ -9,12 +9,7 @@ private $mapper;
    $this->mapper=$this->getMapper('question');
 
  } 
-  public function signin($params){
-    if(isset($params['login']) && isset($params['password'])){
-      $map=$this->getMapper('user');
-      return $map->load(array('Pseudo=? and Mdp=?',$params['login'], $params['password']));
-    }
-  }
+  
  
  public function home(){
   
