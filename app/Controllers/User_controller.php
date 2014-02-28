@@ -45,7 +45,7 @@ class User_controller extends Controller{
   }
 
   public function signin($f3){
-  	$donnees=$this->model->getReponse();
+  	//$donnees=$this->model->signin();
     $this->tpl['sync']='signin.html';
 
   }
