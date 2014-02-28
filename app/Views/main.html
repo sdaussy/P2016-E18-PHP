@@ -13,7 +13,14 @@
   <link href="public/stylesheet/mfglabs_iconset.css" rel="stylesheet" type="text/css" />
   <link href="public/stylesheet/cortex.css" rel="stylesheet" type="text/css" />
         <script type="text/javascript" src="public/js/jquery.js"></script>
-        
+        <script type="text/javascript">
+          $(document).ready(function(){ 
+            $("#slider").easySlider({
+              auto: false, 
+              continuous: false
+            });
+          }); 
+        </script>
 </head>
 <body class="clearfix">
   <header>
@@ -21,17 +28,15 @@
     <span style="clear:both;"></span>
   </header>
 
-  <section style="margin-top:100px;">
+  <section class="main">
     <?php require('partials/classement.html'); ?>
-    <div style="clear:both; float:none;"></div>   
+    <div style="clear:both; float:none;"></div> 
+
+    <footer>
+    <?php require('partials/footer.html'); ?> 
+    </footer>  
   </section>
-  
-<div style="clear:both; float:none;"></div>
 
-<footer>
-<?php require('partials/footer.html'); ?> 
-
-</footer>
         <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
         <script type="text/javascript" src="public/js/cortex.js"></script>
         <script type="text/javascript" src="public/js/easySlider1.7.js"></script>

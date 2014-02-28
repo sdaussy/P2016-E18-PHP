@@ -1,8 +1,9 @@
- <?php if(isset($error)): ?> 
-<div class="error"><?php echo $error; ?></div>
-<?php endif;?>  
-
 <section class="content_page_log">
+	
+	<?php if(isset($error)): ?> 
+	<div class="error"><?php echo $error; ?></div>
+	<?php endif;?> 
+
 	<h2>Se Connecter</h2>
 	<div></div>
 	<section>
@@ -10,7 +11,8 @@
 			<h2>Pas encore membre ?</h2>
 			<a href="signin/">Inscription</a>
 		</div>
-		<form  method="post" action="login/" id="signin" autocomplete="on"> 
+
+		<form  method="post" action="login/" class="signin" autocomplete="on"> 
 		    <input id="pseudo_user" name="pseudo_user" required="required" type="text" placeholder="VOTRE PSEUDO" />
 		    <input id="pswd_user" name="pswd_user" required="required" type="password" placeholder="MOT DE PASSE"/> 
 		    <input type="submit" name="valid_signin" value="Connexion"/> 

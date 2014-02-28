@@ -1,21 +1,30 @@
-<h2>Répondre</h2>
+<h2>Mes réponses en attente</h2>
 
-  <?php
-if(isset($liste_reponse)):
-foreach($liste_reponse as $reponse):
- ?>
-<ul class="reponse">
-<li><?php echo $reponse['Pseudo']?></li>
-<li><?php echo $reponse['nomDefi']?></li>
-<li><?php echo $reponse['Question']?></li>
-<li><?php echo $reponse['Message']?></li>
-	<?php
-	if($reponse['Image']!=null):
-	 $img=$reponse['Image'] ?>
-	<li><img src="<?php echo $img ?>" alt="<?php $img ?>"/></li>
-	<?php endif;?>
-<li><a href="reponse/@reponse">Go !</a></li>
-<?php
-endforeach;
-endif;
+<section class="list_rep">
+
+ <?php
+	if(isset($liste_reponse)):
+	foreach($liste_reponse as $reponse):
 ?>
+
+	<div class="reponse">
+		<ul>
+			<li><?php echo $reponse['Pseudo']?></li>
+			<li><?php echo $reponse['nomDefi']?></li>
+			<li><?php echo $reponse['Question']?></li>
+			<li><?php echo $reponse['Message']?></li>
+				<?php
+				if($reponse['Image']!=null):
+				 $img=$reponse['Image'] ?>
+				<li><img src="<?php echo $img ?>" alt="<?php $img ?>"/></li>
+				<?php endif;?>
+			<li><a href="reponse/@reponse">Go !</a></li>
+		</ul>
+	</div>
+<?php
+	endforeach;
+	endif;
+?>
+
+
+</section>
