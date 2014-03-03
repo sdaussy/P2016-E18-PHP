@@ -1,19 +1,22 @@
- <?php if(isset($error)): ?> 
-<div class="error"><?php echo $error; ?></div>
-<?php endif;?>  
-<section class="content_page">
-	<h2>S'inscrire</h2>
+<section class="content_page_log">
+	
+	<?php if(isset($error)): ?> 
+	<div class="error"><?php echo $error; ?></div>
+	<?php endif;?> 
+
+	<h2>Inscription</h2>
 	<div></div>
 	<section>
 		<div class="forget">
-			<h2>Déjà inscrit ?</h2>
-			<a href="login/">Connexion</a>
+			<h2>Déjà membre ?</h2>
+			<a href="login/">Se Connecter</a>
+		</div>
 
-	<form  method="post" action="signin/" id="signin" autocomplete="on"> 
-		<p>Veuilliez remplir tous les champs</p>
-	    <input id="pseudo_user" name="pseudo_user" required="required" type="text" placeholder="VOTRE PSEUDO" />
-	    <input id="pswd_user" name="pswd_user" required="required" type="password" placeholder="MOT DE PASSE"/> 
-	    <input type="submit" name="valid_signin" value="S'inscrire"/> 
-	</form>
+		<form  method="post" action="signin/" class="signin" autocomplete="on"> 
+		    <input id="pseudo_user" name="pseudo_user" required="required" type="text" placeholder="VOTRE PSEUDO" />
+		    <input id="pswd_user" name="pswd_user" required="required" type="password" placeholder="MOT DE PASSE"/> 
+		    <input id="pseudo_user" name="pseudo_user" required="required" type="mail" placeholder="EMAIL" />
+		    <input type="submit" name="valid_signin" value="Valider"/> 
+		</form>
+	</section>
 </section>
-</section> 

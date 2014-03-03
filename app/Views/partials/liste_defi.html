@@ -4,13 +4,16 @@ Ils ont gagnés...
 <br/>
 
 <?php 
-print_r($defi_gagne);
-if(isset($defi_gagne)):
-foreach($defi_gagne as $un_defi_gagne):
+	print_r($defi_gagne);
+	if(isset($defi_gagne)):
+	foreach($defi_gagne as $un_defi_gagne):
 ?>
+
 <li><?php echo $un_defi_gagne['Pseudo']; ?><?php echo $un_defi_gagne['nomDefi']?><?php echo $un_defi_gagne['Question']?></li>
+
 <?php
-endforeach;
-endif;
+	endforeach;
+	endif;
 ?>
+
 Ils ont perdus...

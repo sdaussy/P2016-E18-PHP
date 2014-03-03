@@ -7,7 +7,6 @@ class App_controller extends Controller{
     //instanciation du constructeur de la classe mère
     $this->tpl=array('sync'=>'main.html');
     //template sync
-
   }
   
   

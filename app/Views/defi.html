@@ -19,29 +19,22 @@
     <?php require('partials/header.html'); ?> 
   </header>
 
-<section>
-
-  <section>
     <!--Hello--> <?php/* echo $SESSION['Pseudo']; */?>
     <!--Défiez vos amis !-->
-  </section>
 
   <section class="main" style="clear:both;">
+
     <section class="content_page">
     <?php require('partials/form_defi.html'); ?>   
 
     <?php require('partials/liste_defi.html'); ?>  
     </section>
+
+    <footer>
+    <?php require('partials/footer.html'); ?> 
+    </footer>
+
   </section>
-
-</section>
-
-<div style="clear:both; float:none;"></div>
-
-<footer>
-<?php require('partials/footer.html'); ?> 
-
-</footer>
 
         <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
         <script type="text/javascript" src="public/js/cortex.js"></script>
