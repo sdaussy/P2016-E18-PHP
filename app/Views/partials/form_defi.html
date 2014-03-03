@@ -8,20 +8,26 @@
 <form action="defi/envoi" method="post" name="form_defi" id="form_defi" enctype="multipart/form-data">
 	
 	<input type="text" name="nom_defi" id="nom_defi" placeholder="NOM DE VOTRE DÉFI" required>
-	<form action="users/search/" method="post">
-	<input type="text" name="a_qui" placeholder="RECHERCHER UN AMI" autocomplete="off" required>
-	<ul class="users">
-	  <?php require('users.html'); ?>
-	</ul>
-	</form>
-	
+	<!--<form action="users/search/" method="post">
+	<input id="autoc" type="text" name="a_qui" placeholder="RECHERCHER UN AMI" autocomplete="off" required>	
+	<?php //require('users.html');?>
+	</form>-->
+	<select id="a_qui" name="a_qui" autocomplete="off" required>
+	<option value="" disabled selected>SELECTIONNER UN AMI</option>	
+		<?php if(isset($lesusers)):?>
+			<?php foreach($lesusers as $unuser):?>
+			<option value="<?php echo $unuser['id_User'];?>"><?php echo $unuser['Pseudo'];?></option>
+		<?php endforeach; ?>
+		<?php endif; ?>
+	</select>
+
 	<select name="categories">
-		<option value="1">Musique</option>
-		<option value="2">Arts-Littérature</option>
-		<option value="3">Sciences</option>
-		<option value="4">Geek</option>
-		<option value="5">Divertissement</option>
-		<option value="6">Sport</option>
+		<option value="" disabled selected>CATEGORIE</option>	
+		<?php if(isset($lescats)):?>
+			<?php foreach($lescats as $unecat):?>
+			<option value="<?php echo $unecat['id_Cat'];?>"><?php echo $unecat['nom_Cat'];?></option>
+		<?php endforeach; ?>
+		<?php endif; ?>
 	</select>
 
 	<input type="file" name="file" />

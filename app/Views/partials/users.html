@@ -2,13 +2,18 @@
   <?php
 echo 'guilg';
 if(isset($users)):
-foreach($users as $user):
-//pour chaque élement de $ users que j'appelle $ user je fais ...
- ?>
-
-<li><a><?php echo $user->Pseudo; ?></a></li>
+?>
+<ul id="users">
+	<?php
+	foreach($users as $user):
+	//pour chaque élement de $ users que j'appelle $ user je fais ...
+	?>
+	<li><a><?php echo $user->Pseudo; ?></a></li>
+	<?php
+	endforeach;
+	?>
+</ul>
 <?php
-endforeach;
 endif;
 ?>
 

@@ -20,11 +20,10 @@ private $mapper;
   }
   public function getDefigagne($params){
     return $defi_gagne=$this->dB->exec('SELECT Pseudo, nomDefi, Question, Image, id_User, Reponse, Reponse_User2 FROM question WHERE id_User = :truc and Reponse_User2 = :machin',array(':truc'=>$params['id'], ':machin'=>$params['Reponse']));
-    
   }
   public function getReponse($params){
      //$liste_reponse=$this->getMapper('question');
-    return $liste_reponse=$this->dB->exec('SELECT Image, Pseudo, Question, nomDefi, Message, id_User2, Reponse_User2 FROM question WHERE id_User2 = :truc and Reponse_User2 = :machin',array(':truc'=>$params['id_User'], ':machin'=>''));
+    return $liste_reponse=$this->dB->exec('SELECT id_Question, Image, Pseudo, Question, nomDefi, Message, id_User2, Reponse_User2 FROM question WHERE id_User2 = :truc and Reponse_User2 = :machin',array(':truc'=>$params['id_User'], ':machin'=>''));
     //return $liste_reponse->load(array('Question and nomDefi and Message and id_User2=?',$params['id_User']));
   //id_User2=?',$params['id_User']
   }
@@ -55,11 +54,12 @@ private $mapper;
    return $map->find(null,array('order'=>'Niveau DESC'));
  
   }
- public function getUsers($params){
-   $map=$this->getMapper('user');
-   return $map->find(array('Pseudo=?',$params['Pseudo']),array('order'=>'id_User'));
-   // trouve dans promo la data promo passée en param ordonnée par lastname 
+
+   public function getCats($params){
+   //$map=$this->getMapper('categories');
+   return $lescats=$this->dB->exec('SELECT id_Cat, nom_Cat FROM categories');
  }
+
  
  public function getUser($params){
    return $this->mapper->load(array('userId=?',$params['userId']));

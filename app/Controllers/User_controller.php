@@ -45,14 +45,20 @@ class User_controller extends Controller{
   }
 
   public function signin($f3){
-  	//$donnees=$this->model->signin();
+   	$donnees=$this->model->signin(array('Pseudo'=>$f3->get('POST.pseudo_user'),'password'=>$f3->get('POST.pswd_user'),'Email'=>$f3->get('POST.mail_user')),$f3);
     $this->tpl['sync']='signin.html';
-
+    
   }
    public function searchUsers($f3){
-    $f3->set('users',$this->model->searchUsers(array('keywords'=>$f3->get('POST.pseudo')));
-    	//,'filter'=>$f3->get('POST.filter'))));
+    $f3->set('users',$this->model->searchUsers(array('keywords'=>$f3->get('POST.data'))));
     $this->tpl['async']='partials/users.html';
+   
+
+  }
+   public function getUsers($f3){
+    $donnees=$this->model->getUsers(array('id_User'=>$f3->get('PARAMS.id_User'),'Pseudo'=>$f3->get('PARAMS.Pseudo')));
+    $f3->set('lesusers', $donnees);
+    $this->tpl['sync']='defi.html';
   }
 }
 

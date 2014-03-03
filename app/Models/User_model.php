@@ -17,16 +17,34 @@ private $mapper;
     }
   }
  
- public function signin($params){
-    
+ public function signin($params,$f3){
+    if(isset($params['Pseudo']) && isset($params['password']) && isset($params['Email'])){
+    	$mesusers=$this->dB->exec('SELECT Pseudo FROM user WHERE Pseudo = :truc',array(':truc'=>$params['Pseudo']));
+    	if($mesusers==NULL){		
+	      $form=$this->getMapper('user');
+			$form->Pseudo=$params['Pseudo'];
+			$form->Mdp=$params['password'];
+			$form->Email=$params['Email'];
+			$form->save();
+			$f3->set('success',$f3->get('creationcompteSuccess'));
+		}
+		else{
+			$f3->set('error',$f3->get('pseudoError'));
+		}
+    }
 
 }
 public function searchUsers($params){
   $map=$this->getMapper('user');
  	//$query='(Pseudo like "%'.$params['keywords'].'%")';
- 	$query=array('Pseudo like "%'.$params['keywords'].'%"'),array('order'=>'ASC');
+ 	//$query=array('Pseudo like "%'.$params['keywords'].'%"'),array('order'=>'ASC');
  	//$query.=$params['filter']?' and Pseudo="'.$params['filter'].'"':'';
- 	return $map->find($query);
+ 	return $map->find(array('Pseudo like "%'.$params['keywords'].'%"'));
+ 	//return json_encode($map);
+ }
+  public function getUsers($params){
+   //$map=$this->getMapper('user');
+   return $lesusers=$this->dB->exec('SELECT id_User, Pseudo FROM user');
  }
 
   

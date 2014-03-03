@@ -12,6 +12,9 @@
   <link href="public/stylesheet/style.css" rel="stylesheet" type="text/css" />
   <link href="public/stylesheet/mfglabs_iconset.css" rel="stylesheet" type="text/css" />
   <link href="public/stylesheet/cortex.css" rel="stylesheet" type="text/css" />
+ 
+  <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
   
 </head>
 <body class="clearfix">
@@ -19,12 +22,11 @@
     <?php require('partials/header.html'); ?> 
   </header>
 
-    <!--Hello--> <?php/* echo $SESSION['Pseudo']; */?>
-    <!--Défiez vos amis !-->
 
   <section class="main" style="clear:both;">
 
     <section class="content_page">
+     
     <?php require('partials/form_defi.html'); ?>   
 
     <?php require('partials/liste_defi.html'); ?>  
@@ -35,8 +37,8 @@
     </footer>
 
   </section>
-
-        <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+        
+        
         <script type="text/javascript" src="public/js/cortex.js"></script>
 </body>
 </html>

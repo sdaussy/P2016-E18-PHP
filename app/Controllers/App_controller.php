@@ -15,21 +15,34 @@ class App_controller extends Controller{
   }
 
   public function getDefi($f3){
+      $donnees1=$this->model->getCats(array('id_Cat'=>$f3->get('PARAMS.id_Cat'),'nom_Cat'=>$f3->get('PARAMS.nom_Cat')));
+      $f3->set('lescats', $donnees1);
+
+      $donnees=$this->model->getDefigagne(array('Pseudo'=>$f3->get('PARAMS.Pseudo'),'nomDefi'=>$f3->get('PARAMS.nomDefi'),'Question'=>$f3->get('PARAMS.Question'),'Image'=>$f3->get('PARAMS.Image'),'id_User'=>$f3->get('PARAMS.id_User'),'Reponse_User2'=>$f3->get('PARAMS.Reponse_User2'),'Reponse'=>$f3->get('PARAMS.Reponse'),'id'=>$f3->get('SESSION.id')));
+      $f3->set('defi_gagne', $donnees);
+
+      $modelName='User_model';
+      $this->model=new $modelName();
+      $donnees2=$this->model->getUsers(array('id_User'=>$f3->get('PARAMS.id_User'),'Pseudo'=>$f3->get('PARAMS.Pseudo')));
+      $f3->set('lesusers', $donnees2); 
+         
     $this->tpl['sync']='defi.html';
   }
-  public function getDefigagne($f3){
+  /*public function getDefigagne($f3){
     $donnees=$this->model->getDefigagne(array('Pseudo'=>$f3->get('PARAMS.Pseudo'),'nomDefi'=>$f3->get('PARAMS.nomDefi'),'Question'=>$f3->get('PARAMS.Question'),'Image'=>$f3->get('PARAMS.Image'),'id_User'=>$f3->get('PARAMS.id_User'),'Reponse_User2'=>$f3->get('PARAMS.Reponse_User2'),'Reponse'=>$f3->get('PARAMS.Reponse'),'id'=>$f3->get('SESSION.id')));
     $f3->set('defi_gagne', $donnees);
     $this->tpl['sync']='defi.html';
-  }
+  }*/
 
   public function getReponse($f3){   
-    $donnees=$this->model->getReponse(array('Image'=>$f3->get('PARAMS.Image'),'Pseudo'=>$f3->get('PARAMS.Pseudo'),'Question'=>$f3->get('PARAMS.Question'),'Message'=>$f3->get('PARAMS.Message'),'nomDefi'=>$f3->get('PARAMS.nomDefi'),'id_User'=>$f3->get('SESSION.id'),'Reponse_User2'=>$f3->get('PARAMS.Reponse_User2')));
+    $donnees=$this->model->getReponse(array('id_Question'=>$f3->get('PARAMS.id_Question'),'Image'=>$f3->get('PARAMS.Image'),'Pseudo'=>$f3->get('PARAMS.Pseudo'),'Question'=>$f3->get('PARAMS.Question'),'Message'=>$f3->get('PARAMS.Message'),'nomDefi'=>$f3->get('PARAMS.nomDefi'),'id_User'=>$f3->get('SESSION.id'),'Reponse_User2'=>$f3->get('PARAMS.Reponse_User2')));
     $f3->set('liste_reponse', $donnees);
     $this->tpl['sync']='reponse.html';
   }
   public function getMareponse($f3){ 
-    /*$this->tpl['sync']='single_reponse.html';*/
+    $donnees=$this->model->getReponse(array('Image'=>$f3->get('PARAMS.Image'),'Pseudo'=>$f3->get('PARAMS.Pseudo'),'Question'=>$f3->get('PARAMS.Question'),'Message'=>$f3->get('PARAMS.Message'),'nomDefi'=>$f3->get('PARAMS.nomDefi'),'id_User'=>$f3->get('SESSION.id'),'Reponse_User2'=>$f3->get('PARAMS.Reponse_User2')));
+    $f3->set('single_reponse', $donnees);
+    $this->tpl['sync']='single_reponse.html';
   }
 
   public function getForm_defi($f3){
@@ -61,12 +74,13 @@ class App_controller extends Controller{
     $f3->set('usersClassement', $donnees);
      
   }
-  public function getUsers($f3){
-    $donneesRecues = $this->model->getUsers(array('Pseudo'=>$f3->get('PARAMS.Pseudo')));
-    $f3->set('users', $donneesRecues);
-    $this->tpl['async']='partials/users.html';
-  }
-  
+ 
+  /*public function getCats($f3){
+    $donnees=$this->model->getCats(array('id_Cat'=>$f3->get('PARAMS.id_Cat'),'nom_Cat'=>$f3->get('PARAMS.nom_Cat')));
+    $f3->set('lescats', $donnees);
+    $this->tpl['sync']='defi.html';
+  }*/
+
   public function getUser($f3){
     $f3->set('user',$this->model->getUser(array('Id_User'=>$f3->get('PARAMS.Id_User'))));
     $this->tpl['async']='partials/user.html';

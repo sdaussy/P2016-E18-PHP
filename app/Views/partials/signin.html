@@ -3,6 +3,9 @@
 	<?php if(isset($error)): ?> 
 	<div class="error"><?php echo $error; ?></div>
 	<?php endif;?> 
+	<?php if(isset($success)): ?> 
+	<div class="success"><?php echo $success; ?></div>
+	<?php endif;?> 
 
 	<h2>Inscription</h2>
 	<div></div>
@@ -15,7 +18,7 @@
 		<form  method="post" action="signin/" class="signin" autocomplete="on"> 
 		    <input id="pseudo_user" name="pseudo_user" required="required" type="text" placeholder="VOTRE PSEUDO" />
 		    <input id="pswd_user" name="pswd_user" required="required" type="password" placeholder="MOT DE PASSE"/> 
-		    <input id="pseudo_user" name="pseudo_user" required="required" type="mail" placeholder="EMAIL" />
+		    <input id="mail_user" name="mail_user" required="required" type="email" placeholder="EMAIL" />
 		    <input type="submit" name="valid_signin" value="Valider"/> 
 		</form>
 	</section>
