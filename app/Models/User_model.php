@@ -21,6 +21,13 @@ private $mapper;
     
 
 }
+public function searchUsers($params){
+  $map=$this->getMapper('user');
+ 	//$query='(Pseudo like "%'.$params['keywords'].'%")';
+ 	$query=array('Pseudo like "%'.$params['keywords'].'%"'),array('order'=>'ASC');
+ 	//$query.=$params['filter']?' and Pseudo="'.$params['filter'].'"':'';
+ 	return $map->find($query);
+ }
 
   
 }

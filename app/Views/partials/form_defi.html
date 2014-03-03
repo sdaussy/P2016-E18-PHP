@@ -9,9 +9,12 @@
 	<p>Veuilliez remplir tous les champs du formulaire</p>
 	
 	<input type="text" name="nom_defi" id="nom_defi" placeholder="NOM DE VOTRE DÉFI" required>
-	
-	<input type="text" name="a_qui" placeholder="RECHERCHER UN AMI" autocomplete="off" required>	
-
+	<form action="users/search/" method="post">
+	<input type="text" name="a_qui" placeholder="RECHERCHER UN AMI" autocomplete="off" required>
+	<ul class="users">
+	  <?php require('users.html'); ?>
+	</ul>
+	</form>
 	
 	<select name="categories">
 		<option value="1">Musique</option>
@@ -45,6 +48,4 @@
 	
 
 
-<ul class="users">
-  <?php require('users.html'); ?>
-</ul>
+

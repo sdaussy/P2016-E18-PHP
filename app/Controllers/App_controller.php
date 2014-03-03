@@ -38,13 +38,10 @@ class App_controller extends Controller{
       case 'POST':
         \Web::instance()->receive(function($file) use ($f3){
           $monfichier=$file['name'];
-          $f3->set('monfichier',$monfichier);                      
+         $f3->set('monfichier',$monfichier);
+        //$file->resize(300,400);
         },true,true);
-        $f3->set('UI','templates/;uploads/');
-        $f3->set('image','whatever');
-        $img=new \Image($f3->get('image').'jpg');
-        $img->resize(300,400);
-        file_put_contents($f3->get('image').$img->width().'x'.$img->height().'.jpg',$img->dump('jpeg'));
+       
 
         /*\Web::instance()->receive(function($file){
               $file['name']=$file['name']."_20";              
@@ -76,11 +73,7 @@ class App_controller extends Controller{
     $this->tpl['async']='partials/user.html';
   }
   
-  public function searchUsers($f3){
-    $f3->set('users',$this->model->searchUsers(array('keywords'=>$f3->get('POST.pseudo'),'filter'=>$f3->get('POST.filter'))));
-    $this->tpl['async']='partials/users.html';
-  }
-  
+   
   public function favorite($f3){
     $status=$this->model->favorite(array('favId'=>$f3->get('PARAMS.favId'),'Id_User'=>1));
     echo json_encode(array('status'=>$status));

@@ -49,6 +49,11 @@ class User_controller extends Controller{
     $this->tpl['sync']='signin.html';
 
   }
+   public function searchUsers($f3){
+    $f3->set('users',$this->model->searchUsers(array('keywords'=>$f3->get('POST.pseudo')));
+    	//,'filter'=>$f3->get('POST.filter'))));
+    $this->tpl['async']='partials/users.html';
+  }
 }
 
  ?>

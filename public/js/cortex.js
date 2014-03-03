@@ -43,23 +43,36 @@ $.getJSON($(this).attr('href'))
 })
 })
 
-$('input[name="pseudo"]').on('keyup',function(){
+$('input[name="a_qui"]').on('keyup',function(){
 	console.log('dedans');
 	var $this=$(this);
 	var $form=$(this).parent('form');
 	var datas={'name':$this.val()};
-	datas.filter=$('.index a.on').data('filter');
+	console.log(datas);
+	//datas.filter=$('.index a.on').data('filter');
+	//console.log(datas.filter);
 	//convention var $nomvariable on met le dollar pour dire que dans cette var JS on stocke une var jquery
 	$.ajax({
-		url:$form.attr('action'),
-		method:$form.attr('method'),
-		data:datas
+		url: $form.attr('action'),
+		method: $form.attr('method'),
+		data: datas
 
 		//serialize renvoie un json name : valeur 
 		//creer sous forme de notation objet les données du form
 	})
 	.success(function(data){
-		$('.users').html(data);
+		var ul=$('<ul>');
+		for(var i=0;i<data.length;i++){
+			var liste=$('<li>');
+			var lien=$('<a>');
+			var madata=$data[0];
+			$(lien).append(madata);	
+			$(liste).append(lien);	
+			$(ul).append(liste);
+		}
+		$('.users').append(ul);
+		$('.users').append('jlmj');
+		//$('.users').html(data);
 		console.log('user envoyé');
 
 	})

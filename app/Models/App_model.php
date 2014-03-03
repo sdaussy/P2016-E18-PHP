@@ -66,12 +66,7 @@ private $mapper;
    //trouve dans userID où il est = au user id en params
  }
  
- public function searchUsers($params){
-  $map=$this->getMapper('user');
- 	$query='(Pseudo like "%'.$params['keywords'].'%")';
- 	$query.=$params['filter']?' and Pseudo="'.$params['filter'].'"':'';
- 	return $map->find($query);
- }
+ 
   
   public function favorite ($params){
   	$map=$this->getMapper('favoris');
