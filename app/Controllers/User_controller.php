@@ -60,6 +60,21 @@ class User_controller extends Controller{
     $f3->set('lesusers', $donnees);
     $this->tpl['sync']='defi.html';
   }
+  public function getProfil($f3){
+  	$donnees=$this->model->getProfil(array('id'=>$f3->get('SESSION.id'),'id_User'=>$f3->get('PARAMS.id_User'),'Pseudo'=>$f3->get('PARAMS.Pseudo'),'Email'=>$f3->get('PARAMS.Email'),'img_Profil'=>$f3->get('PARAMS.img_Profil'),'Niveau'=>$f3->get('PARAMS.Niveau')));
+    $f3->set('datas_profil', $donnees);
+    $donnees2=$this->model->getImg_profil(array('img_Profil'=>$f3->get('monfichier'),'id'=>$f3->get('SESSION.id')),$f3);
+    switch($f3->get('VERB')){
+      case 'POST':
+        \Web::instance()->receive(function($file) use ($f3){
+          $monfichier=$file['name'];
+         $f3->set('monfichier',$monfichier);
+        },true,true);
+      break;
+    }
+    $f3->set('img_profil', $donnees2);
+    $this->tpl['sync']='profil.html';
+  }
 }
 
  ?>

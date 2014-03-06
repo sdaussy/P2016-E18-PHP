@@ -17,7 +17,7 @@ private $mapper;
 
   public function getDefi($f3){
 
-  }
+  }   
   public function getDefigagne($params){
     return $defi_gagne=$this->dB->exec('SELECT Pseudo, nomDefi, Question, Image, id_User, Reponse, Reponse_User2 FROM question WHERE id_User = :truc and Reponse_User2 = :machin',array(':truc'=>$params['id'], ':machin'=>$params['Reponse']));
   }
@@ -25,10 +25,26 @@ private $mapper;
      //$liste_reponse=$this->getMapper('question');
     return $liste_reponse=$this->dB->exec('SELECT id_Question, Image, Pseudo, Question, nomDefi, Message, id_User2, Reponse_User2 FROM question WHERE id_User2 = :truc and Reponse_User2 = :machin',array(':truc'=>$params['id_User'], ':machin'=>''));
     //return $liste_reponse->load(array('Question and nomDefi and Message and id_User2=?',$params['id_User']));
-  //id_User2=?',$params['id_User']
+  
   }
    public function getMareponse($params){ 
+   return $ma_reponse=$this->dB->exec('SELECT id_Question, Image, Pseudo, Question, nomDefi, Message, id_User2, Reponse_User2 FROM question WHERE id_User2 = :truc and Reponse_User2 LIKE :machin and id_Question = :chose',array(':truc'=>$params['id_User'], ':machin'=>'',':chose'=>$params['monid_Question']));
     
+  }
+  public function setReponse($params){
+    //$marep=$params['Reponse_User2'];
+    
+   // $gagne_perdu=$this->dB->exec("UPDATE question SET Reponse_User2= :rep WHERE id_Question= :idquestion",array(':idquestion'=>$params['id_Question'],':rep'=>$params['ty']));
+  
+    $form=$this->getMapper('question');
+    $form->load(array('id_Question=? ',$params['id_Question']));
+    $form->Reponse_User2=$params['ty'];
+    $form->update();
+
+    return $form;
+  }
+  public function getSolution($params){
+    return $gagne_perdu=$this->dB->exec('SELECT Reponse_User2, Reponse FROM question WHERE Reponse');
   }
 
   public function getForm_defi($params){ 
@@ -51,12 +67,11 @@ private $mapper;
 
   public function getUsersClassement($params){
     $map=$this->getMapper('user');
-   return $map->find(null,array('order'=>'Niveau DESC'));
+   return $map->find(null,array('order'=>'Niveau DESC','limit'=>5));
  
   }
 
    public function getCats($params){
-   //$map=$this->getMapper('categories');
    return $lescats=$this->dB->exec('SELECT id_Cat, nom_Cat FROM categories');
  }
 

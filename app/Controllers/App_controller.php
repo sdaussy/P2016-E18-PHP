@@ -40,8 +40,25 @@ class App_controller extends Controller{
     $this->tpl['sync']='reponse.html';
   }
   public function getMareponse($f3){ 
-    $donnees=$this->model->getReponse(array('Image'=>$f3->get('PARAMS.Image'),'Pseudo'=>$f3->get('PARAMS.Pseudo'),'Question'=>$f3->get('PARAMS.Question'),'Message'=>$f3->get('PARAMS.Message'),'nomDefi'=>$f3->get('PARAMS.nomDefi'),'id_User'=>$f3->get('SESSION.id'),'Reponse_User2'=>$f3->get('PARAMS.Reponse_User2')));
+    $donnees=$this->model->getMareponse(array('monid_Question'=>$f3->get('POST.id_question'),'id_Question'=>$f3->get('PARAMS.id_Question'),'Image'=>$f3->get('PARAMS.Image'),'Pseudo'=>$f3->get('PARAMS.Pseudo'),'Question'=>$f3->get('PARAMS.Question'),'Message'=>$f3->get('PARAMS.Message'),'nomDefi'=>$f3->get('PARAMS.nomDefi'),'id_User'=>$f3->get('SESSION.id'),'Reponse_User2'=>$f3->get('PARAMS.Reponse_User2')));
     $f3->set('single_reponse', $donnees);
+   /* $ty=$f3->get('POST.reponse');
+    $donnees2=$this->model->setReponse(array(
+      'id_Question'=>$f3->get('POST.id_question'),
+      'ty'=>$ty
+      ));*/
+    $var = $f3->get('POST.nomreponse');
+    $f3->set('solution', 
+        $this->model->setReponse(array(
+        'id_Question'=>$f3->get('POST.id_question'),
+        'ty'=>$var
+        ))
+      );
+    //print_r($f3->get('solution'));
+
+
+    //$donnees3=$this->model->getSolution();
+    //$f3->set('solution', $donnees3);
     $this->tpl['sync']='single_reponse.html';
   }
 
@@ -75,12 +92,6 @@ class App_controller extends Controller{
      
   }
  
-  /*public function getCats($f3){
-    $donnees=$this->model->getCats(array('id_Cat'=>$f3->get('PARAMS.id_Cat'),'nom_Cat'=>$f3->get('PARAMS.nom_Cat')));
-    $f3->set('lescats', $donnees);
-    $this->tpl['sync']='defi.html';
-  }*/
-
   public function getUser($f3){
     $f3->set('user',$this->model->getUser(array('Id_User'=>$f3->get('PARAMS.Id_User'))));
     $this->tpl['async']='partials/user.html';
@@ -92,18 +103,6 @@ class App_controller extends Controller{
     echo json_encode(array('status'=>$status));
     exit;
   }
-  
- /* public function upload($f3){
-    //$this->tpl['sync']='upload.html';
-    switch($f3->get('VERB')){
-      case 'POST':
-        \Web::instance()->receive(function($file){
-           //$this->tpl['sync']='defi.html';
-        },true,true);
-      break;
-    }
-  }*/
-/**/
   
 
 }

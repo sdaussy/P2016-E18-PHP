@@ -20,21 +20,33 @@
   </header>
 <section>
   <section>
-    Répondez à vos amis !
+    Répond à la question !
   </section>
   <section>
-    <?php
-      if(isset($single_reponse)):
+    <?php 
+      if(isset($single_reponse)):?>
+      <ul>
+      <?php
       foreach($single_reponse as $une_data):
        ?>
-      <ul>
+     <li><?php echo $une_data['id_Question']?></li>
       <li><?php echo $une_data['Pseudo']?></li>
       <li><?php echo $une_data['nomDefi']?></li>
+      <?php
+        if($une_data['Image']!=NULL):
+         $img=$une_data['Image'] ?>
+        <li><img src="<?php echo $img ?>" style="width:20em;"alt="<?php $img ?>"/></li>
+        <?php endif;?>  
       <li><?php echo $une_data['Question']?></li>
       <li><?php echo $une_data['Message']?></li>
       <?php
-      endforeach;
-      endif;
+      endforeach; ?>
+      </ul>
+      <form action="reponse/unereponse" method="post" name="form_reponse" id="form_reponse">
+      <input type="text" name="nomreponse" id="nomreponse" placeholder="VOTRE REPONSE" required>
+      <input type="submit" name="ok_reponse" id="ok_reponse" value="Valider"> 
+      </form>  
+      <?php endif;
   ?>
   </section>
 </section>

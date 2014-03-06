@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <base href="<?php echo $BASE; ?>/">
+  <!-- variable qui lit cortex -->
+        <title>Cortex - Profil</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700|Arapey" rel="stylesheet" type="text/css" />
+  <link href="public/stylesheet/style.css" rel="stylesheet" type="text/css" />
+  <link href="public/stylesheet/mfglabs_iconset.css" rel="stylesheet" type="text/css" />
+  <link href="public/stylesheet/cortex.css" rel="stylesheet" type="text/css" />
+        
+</head>
+<body class="clearfix">
+  <header>
+    <?php require('partials/header.html'); ?> 
+    <span style="clear:both;"></span>
+  </header>
+
+  <section class="main">
+    <?php //echo $fgt;?>
+<?php if(isset($datas_profil)):?>
+      <?php foreach($datas_profil as $unedata):?>
+      <?php echo $unedata['Pseudo'];?>
+      <?php echo $unedata['Niveau'];?>
+      <?php echo $unedata['Email'];?>
+      <?php if($unedata['img_Profil']!=null):?>
+      <img src="<?php echo $unedata['img_Profil'] ?>" style="width:8em;">      
+      <form action="profil" method="post" name="form_img_profil" id="form_img_profil" enctype="multipart/form-data">
+      <input type="file" name="img_profil"/>
+      <input type="submit" name="envoi_img_profil" id="envoi_img_profil" value="ok">
+      </form>
+    <?php endif; ?>
+    <?php endforeach; ?>
+    <?php endif; ?>
+    
+    <div style="clear:both; float:none;"></div> 
+
+    
+  </section>
+     <footer>
+    <?php require('partials/footer.html'); ?> 
+    </footer>     
+        <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script type="text/javascript" src="public/js/cortex.js"></script>
+        <script type="text/javascript" src="public/js/easySlider1.7.js"></script>
+</body>
+</html>
