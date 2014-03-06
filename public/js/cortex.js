@@ -1,3 +1,15 @@
+//API SORTANTE : questions et réponses correspondantes
+$.ajax({
+	'url':'api/question',
+	'dataType':'json',
+	'method':'POST'
+})
+
+.success(function(data){
+	console.log(data); 
+});
+
+
 $('.index a').on('click',function(e){
 	e.preventDefault();
 	$('input[name="name"]').focus();

@@ -40,25 +40,20 @@ class App_controller extends Controller{
     $this->tpl['sync']='reponse.html';
   }
   public function getMareponse($f3){ 
-    $donnees=$this->model->getMareponse(array('monid_Question'=>$f3->get('POST.id_question'),'id_Question'=>$f3->get('PARAMS.id_Question'),'Image'=>$f3->get('PARAMS.Image'),'Pseudo'=>$f3->get('PARAMS.Pseudo'),'Question'=>$f3->get('PARAMS.Question'),'Message'=>$f3->get('PARAMS.Message'),'nomDefi'=>$f3->get('PARAMS.nomDefi'),'id_User'=>$f3->get('SESSION.id'),'Reponse_User2'=>$f3->get('PARAMS.Reponse_User2')));
+    $donnees=$this->model->getMa_reponse(array('monid_Question'=>$f3->get('POST.id_question'),'id_Question'=>$f3->get('PARAMS.id_Question'),'Image'=>$f3->get('PARAMS.Image'),'Pseudo'=>$f3->get('PARAMS.Pseudo'),'Question'=>$f3->get('PARAMS.Question'),'Message'=>$f3->get('PARAMS.Message'),'nomDefi'=>$f3->get('PARAMS.nomDefi'),'id_User'=>$f3->get('SESSION.id'),'Reponse_User2'=>$f3->get('PARAMS.Reponse_User2')));
     $f3->set('single_reponse', $donnees);
-   /* $ty=$f3->get('POST.reponse');
+
     $donnees2=$this->model->setReponse(array(
-      'id_Question'=>$f3->get('POST.id_question'),
-      'ty'=>$ty
-      ));*/
-    $var = $f3->get('POST.nomreponse');
-    $f3->set('solution', 
-        $this->model->setReponse(array(
         'id_Question'=>$f3->get('POST.id_question'),
-        'ty'=>$var
-        ))
-      );
-    //print_r($f3->get('solution'));
-
-
-    //$donnees3=$this->model->getSolution();
-    //$f3->set('solution', $donnees3);
+        'rep'=>$f3->get('POST.nomreponse')
+        ));
+    $f3->set('marep', $donnees2);  
+      
+    $donnees3=$this->model->getSolution(array(
+        'Reponse'=>$f3->get('PARAMS.Reponse'),
+        'Reponse_User2'=>$f3->get('PARAMS.Reponse_User2')
+        ));
+    $f3->set('solution', $donnees3);
     $this->tpl['sync']='single_reponse.html';
   }
 

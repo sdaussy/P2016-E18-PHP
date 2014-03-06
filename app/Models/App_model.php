@@ -27,23 +27,26 @@ private $mapper;
     //return $liste_reponse->load(array('Question and nomDefi and Message and id_User2=?',$params['id_User']));
   
   }
-   public function getMareponse($params){ 
+   public function getMa_reponse($params){ 
    return $ma_reponse=$this->dB->exec('SELECT id_Question, Image, Pseudo, Question, nomDefi, Message, id_User2, Reponse_User2 FROM question WHERE id_User2 = :truc and Reponse_User2 LIKE :machin and id_Question = :chose',array(':truc'=>$params['id_User'], ':machin'=>'',':chose'=>$params['monid_Question']));
-    
+   
   }
-  public function setReponse($params){
-    //$marep=$params['Reponse_User2'];
-    
-   // $gagne_perdu=$this->dB->exec("UPDATE question SET Reponse_User2= :rep WHERE id_Question= :idquestion",array(':idquestion'=>$params['id_Question'],':rep'=>$params['ty']));
-  
+  public function setReponse($params){     
     $form=$this->getMapper('question');
     $form->load(array('id_Question=? ',$params['id_Question']));
-    $form->Reponse_User2=$params['ty'];
+    $form->Reponse_User2=$params['rep'];
     $form->update();
 
-    return $form;
+  }
+  public function setSolution($params){
+
   }
   public function getSolution($params){
+    $map=$this->getMapper('question');
+    $map->load(array('Reponse=? and Reponse_User2=?',$params['Reponse'],$params['Reponse_User2']));
+    if($map!=null){
+      $map2=$this->getMapper('id_Cat');
+    }
     return $gagne_perdu=$this->dB->exec('SELECT Reponse_User2, Reponse FROM question WHERE Reponse');
   }
 
