@@ -28,12 +28,12 @@
       <?php echo $unedata['Niveau'];?>
       <?php echo $unedata['Email'];?>
       <?php if($unedata['img_Profil']!=null):?>
-      <img src="<?php echo $unedata['img_Profil'] ?>" style="width:8em;">      
+      <img src="<?php echo $unedata['img_Profil'] ?>" style="width:8em;">
+      <?php endif; ?>      
       <form action="profil" method="post" name="form_img_profil" id="form_img_profil" enctype="multipart/form-data">
       <input type="file" name="img_profil"/>
       <input type="submit" name="envoi_img_profil" id="envoi_img_profil" value="ok">
-      </form>
-    <?php endif; ?>
+      </form>    
     <?php endforeach; ?>
     <?php endif; ?>
     

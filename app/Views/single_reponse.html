@@ -40,10 +40,12 @@
       <li><?php echo $une_data['Question']?></li>
       <li><?php echo $une_data['Message']?></li>
       <?php
+      $monid=$une_data['id_Question'];
       endforeach; ?>
       </ul>
       <form action="reponse/unereponse" method="post" name="form_reponse" id="form_reponse">
       <input type="text" name="nomreponse" id="nomreponse" placeholder="VOTRE REPONSE" required>
+      <input type="hidden" name="id_question" id="id_question" value="<?php echo $monid; ?>">
       <input type="submit" name="ok_reponse" id="ok_reponse" value="Valider"> 
       </form>  
       <?php endif;

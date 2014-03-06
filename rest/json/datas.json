@@ -1,0 +1,28 @@
+<?php if(isset($GET['callback'])): echo $GET['callback'].'('; endif;?>
+{
+
+"header":[
+<?php if(isset($header)): ?>
+{
+"code":<?php echo $header['code']?>,
+"status":"<?php echo $header['status']?>",
+"text":"<?php echo $header['text']?>"
+}
+<?php endif; ?>
+
+],
+"body":[
+<?php if(isset($datas)): ?>
+<?php foreach($datas as $data):?>
+{
+"question":"<?php echo $data->Question ?>",
+"reponse":"<?php echo $data->Reponse ?>",
+"id_question":"<?php echo $data->id_Question ?>",
+"url":"<?php echo 'http://localhost/cortex/api/question_reponse/'.$data->id_Question; ?>"
+},
+<?php endforeach;?>
+<?php endif;?>
+]
+
+}
+<?php if(isset($GET['callback'])): echo ')'; endif; ?>

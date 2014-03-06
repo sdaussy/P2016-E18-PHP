@@ -51,22 +51,12 @@ public function searchUsers($params){
   //$map=$this->getMapper('user');
   return $mesdatas=$this->dB->exec('SELECT id_User, Pseudo, Email, img_Profil, Niveau FROM user WHERE id_User = :truc', array(':truc'=>$params['id']));
  }
- public function getImg_profil($params,$f3){
-  //$map=$this->getMapper('user');
-    $img_profil=$this->dB->exec('SELECT id_User, img_Profil FROM user WHERE id_User = :truc and img_Profil = :machin',array(':truc'=>$params['id'], ':machin'=>$params['img_Profil']));
-    //$map->load(array('img_Profil=? and id_User=?',$params['img_Profil'],$params['id']));
-  //$f3->set('fgt', $img_profil);
-    if(!$img_profil==null){
-  $map=$this->getMapper('user');
-      $map->img_Profil=$params['img_Profil'];
-      $map->save();
-      return true;
-    }
-    //else{
-      //$img_profil->erase();
-     // return false;
-      //update
-   //}
+ public function getImg_profil($params){
+    $map=$this->getMapper('user');
+    $map->load(array('id_User=? ',$params['id']));
+    $map->img_Profil=$params['img_Profil'];
+    $map->update();
+
  }
 
   
