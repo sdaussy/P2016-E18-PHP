@@ -1,6 +1,6 @@
 <h2>Mes réponses en attente</h2>
 
-<section class="list_rep">
+<section class="center_content list_rep">
 
  <?php
 	if(isset($liste_reponse)):
@@ -9,17 +9,18 @@
 
 	<div class="reponse">
 		<ul>
-			<li>
-				<?php echo $reponse['Pseudo']?></li>
+			<li><?php echo $reponse['Pseudo']?></li>
 			<li><?php echo $reponse['nomDefi']?></li>
-			<li><?php echo $reponse['Question']?></li>
+			<li class="question"><?php echo $reponse['Question']?></li>
 			<li><?php echo $reponse['Message']?></li>
 			<?php
 				if($reponse['Image']!=NULL):
 				 $img=$reponse['Image'] ?>
-				<li><img src="<?php echo $img ?>" style="width:10em;"alt="<?php $img ?>"/></li>
+				<li class="list_rep_img"><img src="<?php echo $img ?>" style="width:8em;"alt="<?php $img ?>"/></li>
+				<?php else: ?>
+				<li></li>
 				<?php endif;?>	
-			<li><form action="reponse/unereponse" method="post" name="form_id_question" id="form_id_question">
+			<li class="go"><form action="reponse/unereponse" method="post" name="form_id_question" id="form_id_question">
 			<input type="hidden" name="id_question" id="id_question" value="<?php echo $reponse['id_Question'] ?>">
 			<input type="submit" name="ok_idquestion" id="ok_idquestion" value="Go ! ">
 			</form>

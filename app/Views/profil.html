@@ -36,20 +36,28 @@
 
           <section class="content_datauser">
             <?php if($unedata['img_Profil']!=null):?>
-            <img src="<?php echo $unedata['img_Profil'] ?>" style="width:8em;"> 
+            <img src="<?php echo $unedata['img_Profil'] ?>"> 
             <?php endif; ?> 
 
             <p><?php echo $unedata['Pseudo'];?></p>
             <p><?php echo $unedata['Email'];?></p>
             <div style="clear:both; float:none;"></div>
+            
+            <div style="clear:both; float:none;"></div> 
+
+            <form action="profil" method="post" name="form_img_profil" id="form_img_profil" enctype="multipart/form-data">
+
+              <p class="file">
+                <input type="file" name="img_profil" id="file" />
+                <label for="file">Charger une image</label>
+              </p>
+
+              <input type="submit" name="envoi_img_profil" id="envoi_img_profil" value="OK">
+            </form>
+
           </section>
 
-          <div style="clear:both; float:none;"></div> 
 
-          <form action="profil" method="post" name="form_img_profil" id="form_img_profil" enctype="multipart/form-data">
-            <input type="file" name="img_profil"/>
-            <input type="submit" name="envoi_img_profil" id="envoi_img_profil" value="Changer votre photo">
-          </form>
     
         <?php endforeach; ?>
       <?php endif; ?>

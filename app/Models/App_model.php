@@ -45,7 +45,7 @@ private $mapper;
     $map=$this->getMapper('question');
     $map->load(array('Reponse=? and Reponse_User2=?',$params['Reponse'],$params['Reponse_User2']));
     if($map!=null){
-      $map2=$this->getMapper('id_Cat');
+      //$map2=$this->getMapper('id_Cat');
     }
     return $gagne_perdu=$this->dB->exec('SELECT Reponse_User2, Reponse FROM question WHERE Reponse');
   }
