@@ -10,8 +10,12 @@ class User_controller extends Controller{
 
   }
 
-
+  /*Permet la connexion de l'utilisateur à son compte
+    route : /login
+    redirection : reroute vers défi
+  */
 	public function login($f3){
+    $pass=hash('sha256',$f3->get('POST.pswd_user'));
 	    switch($f3->get('VERB')){
 	      case 'GET':
 	        $this->tpl['sync']='login.html';
@@ -19,7 +23,7 @@ class User_controller extends Controller{
 	      case 'POST':
 	        $auth=$this->model->login(array(
 	          'login'=>$f3->get('POST.pseudo_user'),
-	          'password'=>$f3->get('POST.pswd_user')
+	          'password'=>$pass
 	        ));
 	        if(!$auth){
 	          $f3->set('error',$f3->get('loginError'));
@@ -38,44 +42,73 @@ class User_controller extends Controller{
 	      break;
 	    }
 	  }
-  
+  /*Permet à l'utilisateur de se déconnecter 
+    route : /logout
+    redirection : reroute vers la home
+  */
   public function logout($f3){
     session_destroy();
     $f3->reroute('/');
   }
 
+  /*Permet l'inscription d'un utilisateur 
+    route : /signin
+    template : signin.html
+  */
   public function signin($f3){
-   	$donnees=$this->model->signin(array('Pseudo'=>$f3->get('POST.pseudo_user'),'password'=>$f3->get('POST.pswd_user'),'Email'=>$f3->get('POST.mail_user')),$f3);
+    $pass=hash('sha256',$f3->get('POST.pswd_user'));
+   	$donnees=$this->model->signin(array(
+      'Pseudo'=>$f3->get('POST.pseudo_user'),
+      'password'=>$pass,
+      'Email'=>$f3->get('POST.mail_user')
+      ),$f3);
     $this->tpl['sync']='signin.html';
     
   }
-   public function searchUsers($f3){
-    $f3->set('users',$this->model->searchUsers(array('keywords'=>$f3->get('POST.data'))));
-    $this->tpl['async']='partials/users.html';
-   
 
-  }
-   public function getUsers($f3){
-    $donnees=$this->model->getUsers(array('id_User'=>$f3->get('PARAMS.id_User'),'Pseudo'=>$f3->get('PARAMS.Pseudo')));
-    $f3->set('lesusers', $donnees);
-    $this->tpl['sync']='defi.html';
-  }
+   /*Permet de récupérer le profil d'un utilisateur 
+    route : /profil
+    template : profil.html
+  */
   public function getProfil($f3){
-  	$donnees=$this->model->getProfil(array('id'=>$f3->get('SESSION.id'),'id_User'=>$f3->get('PARAMS.id_User'),'Pseudo'=>$f3->get('PARAMS.Pseudo'),'Email'=>$f3->get('PARAMS.Email'),'img_Profil'=>$f3->get('PARAMS.img_Profil'),'Niveau'=>$f3->get('PARAMS.Niveau')));
+     /* Permet de récupérer le profil d'un utilisateur  */
+  	$donnees=$this->model->get_Profil(array(
+      'id'=>$f3->get('SESSION.id'),
+      'id_User'=>$f3->get('PARAMS.id_User'),
+      'Pseudo'=>$f3->get('PARAMS.Pseudo'),
+      'Email'=>$f3->get('PARAMS.Email'),
+      'img_Profil'=>$f3->get('PARAMS.img_Profil'),
+      'Niveau'=>$f3->get('PARAMS.Niveau')
+      ));
     $f3->set('datas_profil', $donnees);
-    
+    /* Permet de récupérer le fichier envoyé  */
     switch($f3->get('VERB')){
       case 'POST':
         \Web::instance()->receive(function($file) use ($f3){
           $monfichier=$file['name'];
-         $f3->set('monfichier',$monfichier);
+         $f3->set('monimgprofil',$monfichier);
         },true,true);
       break;
     }
-    $donnees2=$this->model->getImg_profil(array('img_Profil'=>$f3->get('monfichier'),'id'=>$f3->get('SESSION.id')));
+    /* Permet de récupérer l'image de profil updaté de l'utilisateur  */
+    $donnees2=$this->model->getImg_profil(array(
+      'id_User'=>$f3->get('SESSION.id'),
+      'img_Profil'=>$f3->get('monimgprofil')
+      ));
     $f3->set('img_profil', $donnees2);
+    
     $this->tpl['sync']='profil.html';
   }
 }
 
+ /* Test pour l'autocomplete du champ ami pour l'envoi d'un défi
+ public function searchUsers($f3){
+    $f3->set('users',$this->model->searchUsers(array(
+      'keywords'=>$f3->get('POST.data')
+      ))
+    );
+    $this->tpl['async']='partials/users.html';
+   
+
+  }*/
  ?>

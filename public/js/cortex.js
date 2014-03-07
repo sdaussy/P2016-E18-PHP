@@ -1,14 +1,18 @@
-//API SORTANTE : questions et réponses correspondantes
+
 $.ajax({
-	'url':'api/question',
-	'dataType':'json',
-	'method':'POST'
+	url: '',
+	method: 'get',
+	datatype: 'json',
+	async : true
 })
-
 .success(function(data){
-	console.log(data); 
-});
+	console.log('user envoyé');
+				
+})
+}
 
+	
+});
 
 $('.index a').on('click',function(e){
 	e.preventDefault();
@@ -32,33 +36,13 @@ $('.index a').on('click',function(e){
 	$('input[name="name"]').val();
 });
 
-$('.users').on('click','a:first-of-type',function(e){
-	e.preventDefault();
-	$.ajax({
-		url:$(this).attr('href')
-	})
-	.success(function(data){
-		$('section + section').html(data);
-	});
-})
-.on('click','a.fav',function(e){
-e.preventDefault();
-var $this=($this);
-$.getJSON($(this).attr('href'))
-.success(function(data){
-	if(data.status=='false'){
-		$this.removeClass('on');
-	}
-	else{
-		$this.addClass('on');
-	}
-})
-})
 
-/*$('#autoc').autocomplete({
+
+/* 3 tests pour l'autocomplete des users : 
+$('#autoc').autocomplete({
 source:function( request, response ){		
 	$.ajax({
-				url: 'app/Models/User_model.php',
+				url: 'defi/',
 				method: 'get',
 				datatype: 'json',
 				async : true
@@ -96,7 +80,7 @@ $( "#autoc" ).autocomplete({
             }
         });
     }
-});*/
+});
 $('input[name="a_qui"]').on('keyup',function(){
 	console.log('dedans');
 	var $this=$(this);
@@ -116,19 +100,7 @@ $('input[name="a_qui"]').on('keyup',function(){
 		console.log( "error users récup php" );
 	})
 });
+*/
 
 
 
-
-/*var ul=$('<ul>');
-		for(var i=0;i<data.length;i++){
-			var liste=$('<li>');
-			var lien=$('<a>');
-			var madata=$data[0];
-			$(lien).append(madata);	
-			$(liste).append(lien);	
-			$(ul).append(liste);
-		}
-		$('.users').append(ul);
-		$('.users').append('jlmj');*/
-		//$('.users').html(data);

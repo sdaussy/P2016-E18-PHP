@@ -4,7 +4,12 @@
 
 <section class="content_defi">
 
-
+<?php if(isset($error)): ?> 
+	<div class="error"><?php echo $error; ?></div>
+	<?php endif;?> 
+	<?php if(isset($success)): ?> 
+	<div class="success"><?php echo $success; ?></div>
+	<?php endif;?>
 <form action="defi/envoi" method="post" name="form_defi" id="form_defi" enctype="multipart/form-data">
 	
 	<input type="text" name="nom_defi" id="nom_defi" placeholder="NOM DE VOTRE DÉFI" required>

@@ -1,10 +1,11 @@
-<h2>Mes réponses en attente</h2>
 
-<section class="list_rep">
 
  <?php
 	if(isset($liste_reponse)):
-	foreach($liste_reponse as $reponse):
+	if($liste_reponse!=null):?>
+		<h2>Mes réponses en attente</h2>
+		<section class="list_rep">
+	<?php foreach($liste_reponse as $reponse):
 ?>
 
 	<div class="reponse">
@@ -26,9 +27,14 @@
 		</ul>
 	</div>
 <?php
-	endforeach;
-	endif;
+	endforeach;?>
+	</section>
+	<?php 
+	else: ?>
+	<h2>Aucun défi à relever ...</h2>
+	<?php endif;endif;
+
 ?>
 
 
-</section>
+

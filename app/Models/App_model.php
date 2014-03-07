@@ -45,12 +45,12 @@ private $mapper;
     $map=$this->getMapper('question');
     $map->load(array('Reponse=? and Reponse_User2=?',$params['Reponse'],$params['Reponse_User2']));
     if($map!=null){
-      $map2=$this->getMapper('id_Cat');
+      //$map2=$this->getMapper('id_Cat');
     }
     return $gagne_perdu=$this->dB->exec('SELECT Reponse_User2, Reponse FROM question WHERE Reponse');
   }
 
-  public function getForm_defi($params){ 
+  public function getForm_defi($params,$f3){ 
     $form=$this->getMapper('question');
     $form->id_User2=$params['id_User2'];
     $form->nomDefi=$params['nomDefi'];
@@ -62,6 +62,7 @@ private $mapper;
     $form->Message=$params['Message'];
     $form->Image=$params['Image'];
     $form->save();
+    $f3->set('success',$f3->get('creationdefi'));
 
  }
   public function getForm_reponse($f3){
@@ -85,24 +86,6 @@ private $mapper;
  }
  
  
-  
-  public function favorite ($params){
-  	$map=$this->getMapper('favoris');
-  	$favorite=$map->load(array('fav_Id=? and id_User=?',$params['favId'],$params['idUser']));
-  	if(!$favorite){
-  		$map->fav_Id=$params['favId'];
-  		$map->id_User=$params['idUser'];
-  		$map->save();
-  		return true;
-  	}
-  	else{
-  		$favorite->erase();
-  		return false;
-  		//update
-  	}
-  }
-  
-  
 }
 
 ?>
