@@ -8,8 +8,11 @@ protected $model;
   protected function __construct(){
     
     $f3=\Base::instance();
-    if($f3->get('PATTERN')!='/login' &&!$f3->get('SESSION.id')){
-      //$f3->reroute('/signin');      
+    if(($f3->get('PATTERN')=='/defi' OR $f3->get('PATTERN')=='/reponse' OR $f3->get('PATTERN')=='/reponse/unereponse') &&!$f3->get('SESSION.id')){
+      $f3->reroute('/signin');  
+    }
+    elseif($f3->get('PATTERN')!='/login' &&!$f3->get('SESSION.id')){
+      //$f3->reroute('/signin');
     }
     
     $modelName=substr(get_class($this),0,strpos(get_class($this),'_')+1).'model';
