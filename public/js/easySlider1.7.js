@@ -34,9 +34,9 @@
 		// default configuration properties
 		var defaults = {			
 			prevId: 		'prevBtn',
-			prevText: 		'Previous',
+			prevText: 		'',
 			nextId: 		'nextBtn',	
-			nextText: 		'Next',
+			nextText: 		'',
 			controlsShow:	true,
 			controlsBefore:	'',
 			controlsAfter:	'',	

@@ -1,43 +1,4 @@
 
-$.ajax({
-	url: '',
-	method: 'get',
-	datatype: 'json',
-	async : true
-})
-.success(function(data){
-	console.log('user envoyé');
-				
-})
-}
-
-	
-});
-
-$('.index a').on('click',function(e){
-	e.preventDefault();
-	$('input[name="name"]').focus();
-	var $this=$(this);
-	if($this.hasClass('on')){
-		$('.users').html('');
-		$this.removeClass('on');
-	}
-	else{
-	$.ajax({
-		url:$(this).attr('href')
-
-	})
-	.success(function(data){
-		$('.users').html(data);
-		$('.index a.on').removeClass('on');
-		$this.addClass('on');
-	});
-	}
-	$('input[name="name"]').val();
-});
-
-
-
 /* 3 tests pour l'autocomplete des users : 
 $('#autoc').autocomplete({
 source:function( request, response ){		
@@ -101,6 +62,4 @@ $('input[name="a_qui"]').on('keyup',function(){
 	})
 });
 */
-
-
 

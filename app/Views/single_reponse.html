@@ -18,40 +18,54 @@
   <header>
     <?php require('partials/header.html'); ?> 
   </header>
-<section>
-  <section>
-    Répond à la question !
-  </section>
-  <section>
-    <?php 
-      if(isset($single_reponse)):?>
-      <ul>
-      <?php
-      foreach($single_reponse as $une_data):
-       ?>
-     <li><?php echo $une_data['id_Question']?></li>
-      <li><?php echo $une_data['Pseudo']?></li>
-      <li><?php echo $une_data['nomDefi']?></li>
-      <?php
-        if($une_data['Image']!=NULL):
-         $img=$une_data['Image'] ?>
-        <li><img src="<?php echo $img ?>" style="width:20em;"alt="<?php $img ?>"/></li>
-        <?php endif;?>  
-      <li><?php echo $une_data['Question']?></li>
-      <li><?php echo $une_data['Message']?></li>
-      <?php
-      $monid=$une_data['id_Question'];
-      endforeach; ?>
-      </ul>
-      <form action="reponse/unereponse" method="post" name="form_reponse" id="form_reponse">
-      <input type="text" name="nomreponse" id="nomreponse" placeholder="VOTRE REPONSE" required>
-      <input type="hidden" name="id_question" id="id_question" value="<?php echo $monid; ?>">
-      <input type="submit" name="ok_reponse" id="ok_reponse" value="Valider"> 
-      </form>  
-      <?php endif;
-  ?>
+
+
+  <section class="main">
+    <h2>Répond à la question</h2>
+
+    <section class="center_content">
+    <?php if(isset($single_reponse)):?>
+      
+      <?php foreach($single_reponse as $une_data):?>
+      
+      <section class="content_quest_type">
+      <?php if($une_data['Image']!=NULL):
+        $img=$une_data['Image'] ?>
+        <img src="<?php echo $img ?>" style="width:32em;"alt="<?php $img ?>"/>
+      <?php endif;?>  
+
+      <p><?php echo $une_data['nomDefi']?></p>
+      </section>
+
+      <section class="content_reponse">
+        <p class="up">Il te defie:</p>
+        <p><?php echo $une_data['Pseudo']?></p>
+        <p class="up">Question: </p>
+        <p><?php echo $une_data['Question']?><p>
+        <p class="up">Message: </p> 
+        <p><?php echo $une_data['Message']?></p>
+
+        <?php $monid=$une_data['id_Question']; ?>
+        <p class="up">Réponse: </p> 
+        <form action="reponse/unereponse" method="post" name="form_reponse" id="form_reponse">
+          <input type="text" name="nomreponse" id="nomreponse" placeholder="VOTRE REPONSE" required>
+          <input type="hidden" name="id_question" id="id_question" value="<?php echo $monid; ?>">
+          <input type="submit" name="ok_reponse" id="ok_reponse" value="Valider"> 
+        </form>  
+        <div style="clear:both; float:none;"></div> 
+      </section>
+      <?php endforeach; ?>
+
+      <?php endif;?>
   </section>
 </section>
+
+
+<div style="clear:both; float:none;"></div> 
+
+  <footer>
+  <?php require('partials/footer.html'); ?> 
+  </footer>  
         <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
         <script type="text/javascript" src="public/js/cortex.js"></script>
 </body>

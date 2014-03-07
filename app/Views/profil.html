@@ -20,32 +20,59 @@
     <span style="clear:both;"></span>
   </header>
 
+
   <section class="main">
-    <?php //echo $fgt;?>
-<?php if(isset($datas_profil)):?>
-      <?php foreach($datas_profil as $unedata):?>
-      <?php echo $unedata['Pseudo'];?>
-      <?php echo $unedata['Niveau'];?>
-      <?php echo $unedata['Email'];?>
-      <?php if($unedata['img_Profil']!=null):?>
-      <img src="<?php echo $unedata['img_Profil'] ?>" style="width:8em;">
-      <?php endif; ?>      
-      <form action="profil" method="post" name="form_img_profil" id="form_img_profil" enctype="multipart/form-data">
-      <input type="file" name="img_profil"/>
-      <input type="submit" name="envoi_img_profil" id="envoi_img_profil" value="ok">
-      </form>    
-    <?php endforeach; ?>
-    <?php endif; ?>
-    
-    <div style="clear:both; float:none;"></div> 
+    <h2>Mon profil</h2>
+
+    <section class="content_profil">
+      <?php if(isset($datas_profil)):?>
+        <?php foreach($datas_profil as $unedata):?>
+
+          <section class="content_niveau">
+            <img src="public/stylesheet/media/cortex.png">
+            <h3>Niveau <?php echo $unedata['Niveau'];?></h3>
+            <p>40%</p>
+          </section>
+
+          <section class="content_datauser">
+            <?php if($unedata['img_Profil']!=null):?>
+            <img src="<?php echo $unedata['img_Profil'] ?>"> 
+            <?php endif; ?> 
+
+            <p><?php echo $unedata['Pseudo'];?></p>
+            <p><?php echo $unedata['Email'];?></p>
+            <div style="clear:both; float:none;"></div>
+            
+            <div style="clear:both; float:none;"></div> 
+
+            <form action="profil" method="post" name="form_img_profil" id="form_img_profil" enctype="multipart/form-data">
+
+              <p class="file">
+                <input type="file" name="img_profil" id="file" />
+                <label for="file">Charger une image</label>
+              </p>
+
+              <input type="submit" name="envoi_img_profil" id="envoi_img_profil" value="OK">
+            </form>
+
+          </section>
+
 
     
+        <?php endforeach; ?>
+      <?php endif; ?>
+      
+      <div style="clear:both; float:none;"></div> 
+
+    </section>
+
   </section>
-     <footer>
-    <?php require('partials/footer.html'); ?> 
-    </footer>     
-        <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+
+
+
+  <footer>
+  <?php require('partials/footer.html'); ?> 
+  </footer>     
         <script type="text/javascript" src="public/js/cortex.js"></script>
-        <script type="text/javascript" src="public/js/easySlider1.7.js"></script>
 </body>
 </html>

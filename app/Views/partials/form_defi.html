@@ -2,7 +2,7 @@
 
 	<h2>Nouveau Défi</h2>
 
-<section class="content_defi">
+<section class="content_page content_defi">
 
 <?php if(isset($error)): ?> 
 	<div class="error"><?php echo $error; ?></div>
@@ -35,7 +35,10 @@
 		<?php endif; ?>
 	</select>
 
-	<input type="file" name="file" />
+	  <p class="file">
+	    <input type="file" name="file" id="file" />
+	    <label for="file">Charger une image</label>
+	  </p>
 	
 	<input type="text" name="question" id="question" placeholder="VOTRE QUESTION" required>
 	
